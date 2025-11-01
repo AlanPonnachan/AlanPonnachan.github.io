@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import { TypeAnimation } from 'react-type-animation';
 
 // Components
 const Navigation = ({ activeSection, setActiveSection }) => {
@@ -123,19 +124,27 @@ const Hero = () => {
     <section className="hero">
       <div className="hero-content">
         <div className="hero-text">
-          <div className="hero-badge">
-            <span className="badge-icon">🚀</span>
-            Machine Learning Engineer
-          </div>
           <h1>
-            Transforming Data into
+            Hi, I'm Alan Ponnachan
             <br />
-            <span className="gradient-text">Intelligent Solutions</span>
+           a <span className="gradient-text">
+              <TypeAnimation
+                sequence={[
+                  'ML Engineer',
+                  1500, // wait 1.5s
+                  'OSS Contributor',
+                  1500, // wait 1.5s
+                  'Software Developer',
+                  1500, // wait 1.5s
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+              />
+            </span>
           </h1>
           <p className="hero-description">
-            I'm passionate about building ML models that solve real-world problems. 
-            From computer vision to NLP, I love exploring the endless possibilities 
-            of artificial intelligence and creating systems that learn and adapt.
+            Architecting end-to-end machine learning solutions, from open-source foundations to production-scale deployment. Focused on building scalable, reliable systems that drive real-world results.
           </p>
           <div className="hero-cta">
             <button className="cta-primary">

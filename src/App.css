@@ -156,7 +156,7 @@ body {
 
 .hero-content {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.3fr 0.7fr;
   gap: 80px;
   align-items: center;
   position: relative;
@@ -182,7 +182,7 @@ body {
 }
 
 .hero h1 {
-  font-size: 4rem;
+  font-size: 3.2rem;
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 24px;
