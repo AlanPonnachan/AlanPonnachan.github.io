@@ -2,8 +2,29 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { TypeAnimation } from 'react-type-animation';
 
-// Components
-const Navigation = ({ activeSection, setActiveSection }) => {
+
+const Preloader = ({ loading }) => {
+  return (
+    <div className={`preloader ${loading ? '' : 'preloader-hidden'}`}>
+      <div className="nn-preloader">
+        <div className="nn-layer">
+          <div className="nn-node"></div>
+          <div className="nn-node"></div>
+          <div className="nn-node"></div>
+        </div>
+        <div className="nn-layer">
+          <div className="nn-node"></div>
+          <div className="nn-node"></div>
+        </div>
+        <div className="nn-layer">
+          <div className="nn-node"></div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Navigation = ({ activeSection, onNavigate }) => { // 1. Use onNavigate prop
   const navItems = [
     { name: 'Home', icon: '🏠' },
     { name: 'About', icon: '🧠' },
@@ -22,7 +43,7 @@ const Navigation = ({ activeSection, setActiveSection }) => {
           <button
             key={item.name}
             className={`nav-item ${activeSection === item.name.toLowerCase() ? 'active' : ''}`}
-            onClick={() => setActiveSection(item.name.toLowerCase())}
+            onClick={() => onNavigate(item.name.toLowerCase())} // 2. Call onNavigate
           >
             <span className="nav-icon">{item.icon}</span>
             {item.name}
@@ -172,54 +193,7 @@ const Hero = () => {
   );
 };
 
-const MLDomains = () => {
-  const domains = [
-    { 
-      icon: '👁️', 
-      name: 'Computer Vision', 
-      description: 'Image classification, object detection, and visual recognition systems',
-      technologies: ['OpenCV', 'YOLO', 'CNN']
-    },
-    { 
-      icon: '🗣️', 
-      name: 'Natural Language Processing', 
-      description: 'Text analysis, sentiment analysis, and language understanding',
-      technologies: ['NLTK', 'Transformers', 'BERT']
-    },
-    { 
-      icon: '📈', 
-      name: 'Predictive Analytics', 
-      description: 'Forecasting models and statistical analysis for business insights',
-      technologies: ['Pandas', 'Scikit-learn', 'Prophet']
-    },
-    { 
-      icon: '🎯', 
-      name: 'Deep Learning', 
-      description: 'Neural networks and deep architectures for complex problems',
-      technologies: ['TensorFlow', 'PyTorch', 'Keras']
-    }
-  ];
 
-  return (
-    <section className="ml-domains">
-      <h2>My ML Expertise</h2>
-      <div className="domains-grid">
-        {domains.map((domain, index) => (
-          <div key={index} className="domain-card">
-            <div className="domain-icon">{domain.icon}</div>
-            <h3>{domain.name}</h3>
-            <p>{domain.description}</p>
-            <div className="tech-tags">
-              {domain.technologies.map((tech, techIndex) => (
-                <span key={techIndex} className="tech-tag">{tech}</span>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-};
 
 const About = () => {
   const experience = [
@@ -489,6 +463,31 @@ const Blog = () => {
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
+  const [loading, setLoading] = useState(true);
+
+  // 1. Update the initial load effect
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000); // Changed to 1 second
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // 2. Create the new navigation handler function
+  const handleNavigation = (newSection) => {
+    // Don't do anything if clicking on the same section
+    if (newSection === activeSection) {
+      return;
+    }
+
+    setLoading(true); // Show the preloader
+
+    setTimeout(() => {
+      setActiveSection(newSection); // Change the content
+      setLoading(false); // Hide the preloader
+    }, 1000); // Wait for 1 second before showing the new section
+  };
 
   const renderSection = () => {
     switch (activeSection) {
@@ -496,7 +495,7 @@ function App() {
         return (
           <>
             <Hero />
-            <MLDomains />
+            
           </>
         );
       case 'about':
@@ -509,24 +508,31 @@ function App() {
         return (
           <>
             <Hero />
-            <MLDomains />
+            
           </>
         );
     }
   };
 
   return (
-    <div className="App">
-      <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
-      <main className="main-content">
-        {renderSection()}
-      </main>
-      <div className="ai-assistant">
-        <div className="assistant-icon">🤖</div>
-        <div className="assistant-pulse"></div>
-      </div>
-    </div>
-  );
+  <div className="App">
+    <Preloader loading={loading} />
+
+    {/* Only render the rest of the app when not loading */}
+    {!loading && (
+      <>
+        <Navigation activeSection={activeSection} onNavigate={handleNavigation} />
+        <main className="main-content">
+          {renderSection()}
+        </main>
+        <div className="ai-assistant">
+          <div className="assistant-icon">🤖</div>
+          <div className="assistant-pulse"></div>
+        </div>
+      </>
+    )}
+  </div>
+);
 }
 
 export default App;
