@@ -256,10 +256,8 @@ const About = () => {
             </p>
           </div>
           <div className="about-image">
-            <img src="/api/placeholder/300/300" alt="ML Engineer at work" />
-            <div className="image-overlay">
-              <span>💡 Always Learning</span>
-            </div>
+            <img src="/profile.png" alt="profile pic" />
+      
           </div>
         </div>
       </div>
