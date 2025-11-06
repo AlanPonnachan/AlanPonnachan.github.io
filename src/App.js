@@ -155,7 +155,7 @@ const Hero = () => {
                   1500, // wait 1.5s
                   'OSS Contributor',
                   1500, // wait 1.5s
-                  'Software Developer',
+                  'LLM Engineer',
                   1500, // wait 1.5s
                 ]}
                 wrapper="span"
