@@ -148,7 +148,7 @@ const Hero = () => {
           <h1>
             Hi, I'm Alan Ponnachan
             <br />
-           a <span className="gradient-text">
+            <span className="gradient-text">
               <TypeAnimation
                 sequence={[
                   'ML Engineer',
@@ -244,14 +244,15 @@ const About = () => {
         <div className="about-intro">
           <div className="about-text">
             <p>
-              I'm a passionate Machine Learning Engineer with a deep fascination for artificial intelligence 
-              and its potential to revolutionize how we solve complex problems. My journey in ML started during 
-              my computer science studies, where I fell in love with the mathematical beauty of neural networks.
+              I’m an ML engineer driven by curiosity and a deep interest in how data, systems, and infrastructure come together to create real impact. 
+              I stay actively engaged in open-source communities, contributing to the tools and frameworks I rely on, 
+              and consistently pushing myself to learn, refine, and improve the way I build ML workflows.
             </p>
             <p>
-              Over the years, I've worked on diverse ML projects spanning computer vision, NLP, and predictive 
-              analytics. I believe in the power of data-driven decision making and enjoy translating business 
-              problems into ML solutions that create real impact.
+              In industry, I’ve worked across the full lifecycle of machine learning systems — 
+              from early experimentation to designing production-grade pipelines and the infrastructure that supports them. 
+              I focus on building reliable, well-architected systems that teams can trust, 
+              and I enjoy turning complex ideas into solutions that scale smoothly in the real world.
             </p>
           </div>
           <div className="about-image">
