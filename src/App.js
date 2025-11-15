@@ -29,7 +29,8 @@ const Navigation = ({ activeSection, onNavigate }) => { // 1. Use onNavigate pro
     { name: 'Home', icon: '🏠' },
     { name: 'About', icon: '🧠' },
     { name: 'Projects', icon: '🤖' },
-    { name: 'Blog', icon: '📊' }
+    { name: 'Blog', icon: '📊' },
+    { name: 'Contact', icon: '📧' } 
   ];
   
   return (
@@ -549,6 +550,8 @@ function App() {
         return <Projects />;
       case 'blog':
         return <Blog />;
+      case 'contact':
+        return <Contact />;
       default:
         return (
           <>
