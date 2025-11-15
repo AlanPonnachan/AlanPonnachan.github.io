@@ -50,9 +50,6 @@ const Navigation = ({ activeSection, onNavigate }) => { // 1. Use onNavigate pro
           </button>
         ))}
       </div>
-      <button className="download-cv">
-        <span>📄</span> Resume
-      </button>
     </nav>
   );
 };
