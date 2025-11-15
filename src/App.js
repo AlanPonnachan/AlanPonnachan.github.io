@@ -457,6 +457,55 @@ const Blog = () => {
   );
 };
 
+
+const Contact = () => {
+  const socials = [
+    { 
+      name: 'LinkedIn', 
+      icon: '💼', 
+      link: 'https://linkedin.com/in/your-username', 
+      username: 'your-username' 
+    },
+    { 
+      name: 'GitHub', 
+      icon: '📂', 
+      link: 'https://github.com/your-username', 
+      username: 'your-username' 
+    },
+    { 
+      name: 'Twitter', 
+      icon: '🐦', 
+      link: 'https://twitter.com/your-username', 
+      username: '@your-username' 
+    },
+    { 
+      name: 'Email', 
+      icon: '✉️', 
+      link: 'mailto:your.email@example.com', 
+      username: 'your.email@example.com' 
+    }
+  ];
+
+  return (
+    <section className="contact">
+      <div className="contact-header">
+        <h2>Get In Touch</h2>
+        <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+      </div>
+      <div className="contact-grid">
+        {socials.map((social, index) => (
+          <a key={index} href={social.link} target="_blank" rel="noopener noreferrer" className="contact-card">
+            <div className="contact-icon">{social.icon}</div>
+            <h3>{social.name}</h3>
+            <p>{social.username}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+
 function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [loading, setLoading] = useState(true);
