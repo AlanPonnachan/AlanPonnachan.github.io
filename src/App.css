@@ -359,6 +359,112 @@ body {
 .skill-tag { background: var(--hero-glow-1); color: var(--text-secondary); padding: 6px 12px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; border: 1px solid var(--border-color-strong); transition: all 0.3s ease; }
 .skill-tag:hover { background: var(--border-color-strong); color: var(--gradient-start); }
 
+
+/* OSS Section */
+.oss {
+  padding: 80px 0;
+}
+
+.oss-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.oss-header h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.oss-header p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.oss-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.oss-card {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 28px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.oss-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-color-strong);
+  box-shadow: 0 15px 35px var(--hero-glow-2);
+}
+
+.oss-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--gradient-start);
+}
+
+.oss-card p {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.oss-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.oss-tag {
+  background: var(--hero-glow-1);
+  color: var(--text-secondary);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color-strong);
+}
+
+.oss-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.oss-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--card-background);
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.oss-link:hover {
+  background: var(--hero-glow-1);
+  color: var(--gradient-start);
+  border-color: var(--border-color-strong);
+}
+
 /* Projects Section */
 .projects { padding: 80px 0; }
 .projects-header { text-align: center; margin-bottom: 60px; }

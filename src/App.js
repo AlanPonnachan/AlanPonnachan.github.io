@@ -28,6 +28,7 @@ const Navigation = ({ activeSection, onNavigate, theme, toggleTheme }) => { // 1
   const navItems = [
     { name: 'Home', icon: '🏠' },
     { name: 'About', icon: '🧠' },
+    { name: 'OSS', icon: '🧑‍💻' },
     { name: 'Projects', icon: '🤖' },
     { name: 'Blog', icon: '📊' },
     { name: 'Contact', icon: '📧' } 
@@ -305,6 +306,65 @@ const About = () => {
   );
 };
 
+
+const OSS = () => {
+  // IMPORTANT: Replace this placeholder data with your actual contributions!
+  const contributions = [
+    {
+      project: "TensorFlow",
+      description: "Fixed a critical bug in the `tf.data` API that prevented proper dataset shuffling with large buffer sizes, improving data pipeline reliability for distributed training.",
+      prLink: "https://github.com/tensorflow/tensorflow/pull/your-pr-number",
+      releaseLink: "https://github.com/tensorflow/tensorflow/releases/tag/v2.10.0",
+      tags: ["Python", "Bug Fix", "Data Pipelines"]
+    },
+    {
+      project: "Hugging Face Transformers",
+      description: "Contributed a new optimization layer for the T5 model, reducing inference latency by 15% on CPU-based systems.",
+      prLink: "https://github.com/huggingface/transformers/pull/your-pr-number",
+      releaseLink: "https://github.com/huggingface/transformers/commit/your-commit-hash",
+      tags: ["PyTorch", "Optimization", "NLP"]
+    },
+    {
+      project: "Scikit-learn",
+      description: "Added a new evaluation metric, Mean Absolute Percentage Error (MAPE), to the regression metrics module, along with comprehensive documentation and unit tests.",
+      prLink: "https://github.com/scikit-learn/scikit-learn/pull/your-pr-number",
+      releaseLink: "https://github.com/scikit-learn/scikit-learn/releases/tag/v1.2.0",
+      tags: ["Python", "New Feature", "Documentation"]
+    }
+  ];
+
+  return (
+    <section className="oss">
+      <div className="oss-header">
+        <h2>Open Source Contributions</h2>
+        <p>Proud to be a part of the open-source community. Here are some of my contributions.</p>
+      </div>
+      <div className="oss-grid">
+        {contributions.map((item, index) => (
+          <div key={index} className="oss-card">
+            <h3>{item.project}</h3>
+            <p>{item.description}</p>
+            <div className="oss-tags">
+              {item.tags.map((tag, tagIndex) => (
+                <span key={tagIndex} className="oss-tag">{tag}</span>
+              ))}
+            </div>
+            <div className="oss-links">
+              <a href={item.prLink} target="_blank" rel="noopener noreferrer" className="oss-link">
+                <span>🔗</span> Pull Request
+              </a>
+              <a href={item.releaseLink} target="_blank" rel="noopener noreferrer" className="oss-link">
+                <span>🎉</span> Official Release
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
+
+
 const Projects = () => {
   const projects = [
     {
@@ -562,6 +622,8 @@ function App() {
         );
       case 'about':
         return <About />;
+      case 'oss': 
+        return <OSS />;
       case 'projects':
         return <Projects />;
       case 'blog':
