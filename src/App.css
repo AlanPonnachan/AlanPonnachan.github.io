@@ -1,3 +1,35 @@
+/*
+  Theme Variables
+  Default is dark mode
+*/
+:root {
+  --background-color: #0a0a0a;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --card-background: rgba(255, 255, 255, 0.02);
+  --blur-background: rgba(15, 15, 15, 0.95);
+  --border-color: rgba(102, 126, 234, 0.1);
+  --border-color-strong: rgba(102, 126, 234, 0.2);
+  --gradient-start: #667eea;
+  --gradient-end: #764ba2;
+  --scrollbar-track: #1a1a1a;
+  --hero-glow-1: rgba(102, 126, 234, 0.1);
+  --hero-glow-2: rgba(118, 75, 162, 0.1);
+}
+
+[data-theme='light'] {
+  --background-color: #f4f4f5;
+  --text-primary: #18181b;
+  --text-secondary: #52525b;
+  --card-background: rgba(255, 255, 255, 0.8);
+  --blur-background: rgba(244, 244, 245, 0.85);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --border-color-strong: rgba(0, 0, 0, 0.2);
+  --scrollbar-track: #e4e4e7;
+  --hero-glow-1: rgba(102, 126, 234, 0.15);
+  --hero-glow-2: rgba(118, 75, 162, 0.15);
+}
+
 * {
   margin: 0;
   padding: 0;
