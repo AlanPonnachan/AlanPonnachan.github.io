@@ -24,7 +24,7 @@ const Preloader = ({ loading }) => {
   );
 };
 
-const Navigation = ({ activeSection, onNavigate }) => { // 1. Use onNavigate prop
+const Navigation = ({ activeSection, onNavigate, theme, toggleTheme }) => { // 1. Accept new props
   const navItems = [
     { name: 'Home', icon: '🏠' },
     { name: 'About', icon: '🧠' },
@@ -44,12 +44,16 @@ const Navigation = ({ activeSection, onNavigate }) => { // 1. Use onNavigate pro
           <button
             key={item.name}
             className={`nav-item ${activeSection === item.name.toLowerCase() ? 'active' : ''}`}
-            onClick={() => onNavigate(item.name.toLowerCase())} // 2. Call onNavigate
+            onClick={() => onNavigate(item.name.toLowerCase())}
           >
             <span className="nav-icon">{item.icon}</span>
             {item.name}
           </button>
         ))}
+        {/* 2. Add the theme toggle button here */}
+        <button className="nav-item theme-toggle" onClick={toggleTheme} title="Toggle theme">
+          <span className="nav-icon">{theme === 'dark' ? '☀️' : '🌙'}</span>
+        </button>
       </div>
     </nav>
   );
@@ -511,6 +515,22 @@ function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [loading, setLoading] = useState(true);
 
+  const [theme, setTheme] = useState(() => {
+    // Read theme from localStorage or default to 'dark'
+    return localStorage.getItem('theme') || 'dark';
+  });
+
+  const toggleTheme = () => {
+    setTheme(prevTheme => (prevTheme === 'dark' ? 'light' : 'dark'));
+  };
+  
+  // Effect to apply theme and save to localStorage
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+
   // 1. Update the initial load effect
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -563,24 +583,27 @@ function App() {
   };
 
   return (
-  <div className="App">
-    <Preloader loading={loading} />
-
-    {/* Only render the rest of the app when not loading */}
-    {!loading && (
-      <>
-        <Navigation activeSection={activeSection} onNavigate={handleNavigation} />
-        <main className="main-content">
-          {renderSection()}
-        </main>
-        <div className="ai-assistant">
-          <div className="assistant-icon">🤖</div>
-          <div className="assistant-pulse"></div>
-        </div>
-      </>
-    )}
-  </div>
-);
+    <div className="App">
+      <Preloader loading={loading} />
+      {!loading && (
+        <>
+          <Navigation 
+            activeSection={activeSection} 
+            onNavigate={handleNavigation} 
+            theme={theme}
+            toggleTheme={toggleTheme}
+          />
+          <main className="main-content">
+            {renderSection()}
+          </main>
+          <div className="ai-assistant">
+            <div className="assistant-icon">🤖</div>
+            <div className="assistant-pulse"></div>
+          </div>
+        </>
+      )}
+    </div>
+  );
 }
 
 export default App;
