@@ -35,10 +35,6 @@ const Navigation = ({ activeSection, onNavigate, theme, toggleTheme }) => { // 1
   
   return (
     <nav className="navigation">
-      <div className="nav-brand">
-        <div className="brand-icon">🔬</div>
-        <span className="brand-name">ML Explorer</span>
-      </div>
       <div className="nav-items">
         {navItems.map((item) => (
           <button
