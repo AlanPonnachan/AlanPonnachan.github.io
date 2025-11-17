@@ -611,6 +611,9 @@ function App() {
     }, 1000); // Wait for 1 second before showing the new section
   };
 
+
+   
+
   const renderSection = () => {
     switch (activeSection) {
       case 'home':

@@ -15,6 +15,7 @@
   --scrollbar-track: #1a1a1a;
   --hero-glow-1: rgba(102, 126, 234, 0.1);
   --hero-glow-2: rgba(118, 75, 162, 0.1);
+  --cursor-glow: rgba(102, 126, 234, 0.2);
 }
 
 [data-theme='light'] {
@@ -28,6 +29,7 @@
   --scrollbar-track: #e4e4e7;
   --hero-glow-1: rgba(102, 126, 234, 0.15);
   --hero-glow-2: rgba(118, 75, 162, 0.15);
+  --cursor-glow: rgba(102, 126, 234, 0.25);
 }
 
 * {
@@ -561,4 +563,43 @@ body {
   .code-animation { font-size: 11px; }
   .ai-assistant { width: 60px; height: 60px; bottom: 20px; right: 20px; }
   .assistant-icon { font-size: 1.5rem; }
+}
+
+
+/*-- Element Glow on Hover Effect --*/
+
+/* 
+  Step 1: Select all interactive elements and add a transition 
+  for the box-shadow property. This makes the glow fade in and out.
+*/
+.project-card,
+.blog-card,
+.contact-card,
+.oss-card,
+.skill-category,
+.exp-content,
+.nav-item,
+.cta-primary,
+.cta-secondary {
+  transition: all 0.3s ease, box-shadow 0.3s ease-in-out;
+}
+
+/* 
+  Step 2: On hover, apply a blurred, colored box-shadow to create the glow.
+  We use the --cursor-glow variable for a nice, theme-consistent color.
+*/
+.project-card:hover,
+.blog-card:hover,
+.contact-card:hover,
+.oss-card:hover,
+.skill-category:hover,
+.exp-content:hover,
+.nav-item:hover,
+.cta-primary:hover,
+.cta-secondary:hover {
+  /* The "lift" effect from before */
+  transform: translateY(-5px);
+  
+  /* The new GLOW effect */
+  box-shadow: 0 0 25px 5px var(--cursor-glow);
 }
