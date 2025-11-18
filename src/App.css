@@ -613,12 +613,18 @@ body {
   transform: translateX(-50%);
   z-index: 999;
   
-  width: 50px;
-  height: 50px;
+  /* 1. Increased size */
+  width: 60px;
+  height: 60px;
+  
   background: var(--blur-background);
+  backdrop-filter: blur(10px);
   color: var(--gradient-start);
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color-strong); /* Made border thicker */
   border-radius: 50%;
+  
+  /* 2. Added a shadow to lift it off the background */
+  box-shadow: 0 4px 20px var(--hero-glow-2);
   
   display: flex;
   justify-content: center;
@@ -626,15 +632,25 @@ body {
   
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.5s ease, visibility 0.5s ease, bottom 0.5s ease;
+  transition: opacity 0.5s ease, visibility 0.5s ease, bottom 0.5s ease, transform 0.5s ease;
   
-  animation: bounce-scroll 2s ease-in-out infinite;
+  animation: bounce-scroll 2.5s ease-in-out infinite; /* Slightly slower animation */
+}
+
+/* 3. Make the SVG icon inside bigger and thicker */
+.scroll-indicator svg {
+  width: 32px;
+  height: 32px;
+}
+
+.scroll-indicator svg path {
+  stroke-width: 2.5; /* Makes the arrow lines thicker */
 }
 
 .scroll-indicator.visible {
   opacity: 1;
   visibility: visible;
-  bottom: 20px;
+  bottom: 25px; /* Adjusted position for new size */
 }
 
 @keyframes bounce-scroll {
@@ -642,9 +658,9 @@ body {
     transform: translateX(-50%) translateY(0);
   }
   40% {
-    transform: translateX(-50%) translateY(-10px);
+    transform: translateX(-50%) translateY(-15px); /* Increased bounce height */
   }
   60% {
-    transform: translateX(-50%) translateY(-5px);
+    transform: translateX(-50%) translateY(-7px);
   }
 }

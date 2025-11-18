@@ -250,30 +250,7 @@ const About = () => {
 
   return (
     <section className="about">
-      <div className="about-header">
-        <h2>About Me</h2>
-        <div className="about-intro">
-          <div className="about-text">
-            <p>
-              I’m an ML engineer driven by curiosity and a deep interest in how data, systems, and infrastructure come together to create real impact. 
-              I stay actively engaged in open-source communities, contributing to the tools and frameworks I rely on, 
-              and consistently pushing myself to learn, refine, and improve the way I build ML workflows.
-            </p>
-            <p>
-              In industry, I’ve worked across the full lifecycle of machine learning systems — 
-              from early experimentation to designing production-grade pipelines and the infrastructure that supports them. 
-              I focus on building reliable, well-architected systems that teams can trust, 
-              and I enjoy turning complex ideas into solutions that scale smoothly in the real world.
-            </p>
-          </div>
-          <div className="about-image">
-            <img src="/profile.png" alt="profile pic" />
-      
-          </div>
-        </div>
-      </div>
-
-      <div className="experience-section">
+       <div className="experience-section">
         <h3>Professional Journey</h3>
         <div className="experience-timeline">
           {experience.map((exp, index) => (
