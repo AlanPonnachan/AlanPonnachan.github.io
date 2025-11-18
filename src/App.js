@@ -3,6 +3,18 @@ import './App.css';
 import { TypeAnimation } from 'react-type-animation';
 
 
+
+const ScrollIndicator = ({ isVisible }) => {
+  return (
+    <div className={`scroll-indicator ${isVisible ? 'visible' : ''}`}>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  );
+};
+
+
 const Preloader = ({ loading }) => {
   return (
     <div className={`preloader ${loading ? '' : 'preloader-hidden'}`}>
@@ -570,11 +582,13 @@ const Contact = () => {
 function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [loading, setLoading] = useState(true);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(false);
 
   const [theme, setTheme] = useState(() => {
     // Read theme from localStorage or default to 'dark'
     return localStorage.getItem('theme') || 'dark';
   });
+  
 
   const toggleTheme = () => {
     setTheme(prevTheme => (prevTheme === 'dark' ? 'light' : 'dark'));
@@ -643,9 +657,39 @@ function App() {
     }
   };
 
+
+   useEffect(() => {
+    const handleScroll = () => {
+      // Hide indicator if user has scrolled down a bit
+      if (window.scrollY > 50) {
+        setShowScrollIndicator(false);
+      } else {
+        // Otherwise, check if it should be visible
+        // (i.e., if there's content to scroll to)
+        const isScrollable = document.documentElement.scrollHeight > window.innerHeight;
+        setShowScrollIndicator(isScrollable);
+      }
+    };
+
+    // Run the check once after the new section has rendered
+    // A small timeout ensures the DOM has updated its scrollHeight
+    const checkScrollable = () => setTimeout(handleScroll, 100);
+    
+    checkScrollable(); // Check on initial load/navigation
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', checkScrollable); // Re-check on window resize
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', checkScrollable);
+    };
+  }, [activeSection, loading]); // Re-run this logic when the section changes or loading finishes
+
   return (
     <div className="App">
       <Preloader loading={loading} />
+      <ScrollIndicator isVisible={showScrollIndicator} />
       {!loading && (
         <>
           <Navigation 
