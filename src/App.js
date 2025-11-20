@@ -240,29 +240,20 @@ const About = () => {
     }
   ];
 
-  const skills = {
-    "Programming": ["Python", "R", "SQL", "JavaScript", "C++"],
-    "ML Frameworks": ["TensorFlow", "PyTorch", "Scikit-learn", "XGBoost"],
-    "Data Tools": ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Jupyter"],
-    "Cloud & MLOps": ["AWS SageMaker", "Docker", "Kubernetes", "MLflow"],
-    "Specialties": ["Deep Learning", "Computer Vision", "NLP", "Time Series"]
-  };
-
   return (
     <section className="about">
-       <div className="experience-section">
-        <h3>Professional Journey</h3>
+      <div className="experience-section">
+        <h2>Professional Journey</h2>
         <div className="experience-timeline">
           {experience.map((exp, index) => (
             <div key={index} className="experience-item">
-              <div className="exp-marker">
-                <div className="marker-dot"></div>
-                <div className="marker-line"></div>
-              </div>
+              <div className="exp-marker"></div>
               <div className="exp-content">
                 <div className="exp-header">
-                  <h4>{exp.role}</h4>
-                  <span className="exp-company">{exp.company}</span>
+                  <div className="exp-title-group">
+                    <h4>{exp.role}</h4>
+                    <span className="exp-company">@ {exp.company}</span>
+                  </div>
                   <span className="exp-period">{exp.period}</span>
                 </div>
                 <ul className="exp-highlights">
@@ -270,22 +261,6 @@ const About = () => {
                     <li key={hIndex}>{highlight}</li>
                   ))}
                 </ul>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="skills-section">
-        <h3>Technical Arsenal</h3>
-        <div className="skills-grid">
-          {Object.entries(skills).map(([category, skillList]) => (
-            <div key={category} className="skill-category">
-              <h4>{category}</h4>
-              <div className="skill-tags">
-                {skillList.map((skill, index) => (
-                  <span key={index} className="skill-tag">{skill}</span>
-                ))}
               </div>
             </div>
           ))}
