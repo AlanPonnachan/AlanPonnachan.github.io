@@ -212,30 +212,33 @@ const About = () => {
       role: "Senior ML Engineer",
       company: "TechCorp AI",
       period: "2022 - Present",
+      tech: ["PyTorch", "AWS SageMaker", "Kubernetes", "Redis"], // Added Tech
       highlights: [
-        "Led development of computer vision system improving accuracy by 23%",
-        "Built recommendation engine serving 1M+ users daily",
-        "Mentored junior ML engineers and established ML best practices"
+        "Architected a real-time computer vision pipeline increasing defect detection accuracy by 23% in manufacturing lines.",
+        "Scaled recommendation inference engine to serve 1M+ daily active users with <50ms latency.",
+        "Established MLOps best practices, introducing automated model retraining and drift monitoring."
       ]
     },
     {
       role: "Data Scientist",
       company: "DataWorks Inc",
       period: "2020 - 2022",
+      tech: ["Python", "Scikit-learn", "Airflow", "PostgreSQL"], // Added Tech
       highlights: [
-        "Developed predictive models reducing customer churn by 35%",
-        "Created automated ML pipeline processing 100GB+ daily",
-        "Published research on ensemble methods in top-tier conference"
+        "Developed churn prediction models that identified high-risk customers, leading to a 35% reduction in churn.",
+        "Built an automated ETL pipeline processing 100GB+ of daily structured data for downstream analytics.",
+        "Published research on ensemble methods for time-series forecasting in a top-tier internal conference."
       ]
     },
     {
       role: "ML Research Intern",
       company: "AI Research Lab",
       period: "2019 - 2020",
+      tech: ["TensorFlow", "Keras", "NumPy", "Pandas"], // Added Tech
       highlights: [
-        "Researched novel architectures for time-series forecasting",
-        "Contributed to open-source ML libraries with 1000+ stars",
-        "Won best paper award at university ML symposium"
+        "Investigated novel transformer architectures for multivariate time-series forecasting.",
+        "Optimized data preprocessing workflows, reducing experiment turnaround time by 40%.",
+        "Contributed to the lab's open-source utility library, receiving 1000+ stars on GitHub."
       ]
     }
   ];
@@ -247,20 +250,32 @@ const About = () => {
         <div className="experience-timeline">
           {experience.map((exp, index) => (
             <div key={index} className="experience-item">
-              <div className="exp-marker"></div>
+              <div className="timeline-connector">
+                <div className="timeline-dot"></div>
+                <div className="timeline-line"></div>
+              </div>
               <div className="exp-content">
                 <div className="exp-header">
-                  <div className="exp-title-group">
+                  <div className="exp-role-wrapper">
                     <h4>{exp.role}</h4>
-                    <span className="exp-company">@ {exp.company}</span>
+                    <span className="exp-company">{exp.company}</span>
                   </div>
-                  <span className="exp-period">{exp.period}</span>
+                  <div className="exp-period-badge">
+                    <span>🗓️</span> {exp.period}
+                  </div>
                 </div>
+                
                 <ul className="exp-highlights">
                   {exp.highlights.map((highlight, hIndex) => (
                     <li key={hIndex}>{highlight}</li>
                   ))}
                 </ul>
+
+                <div className="exp-tech-stack">
+                  {exp.tech.map((t, i) => (
+                    <span key={i} className="exp-tech-tag">{t}</span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
@@ -269,7 +284,6 @@ const About = () => {
     </section>
   );
 };
-
 
 const OSS = () => {
   // IMPORTANT: Replace this placeholder data with your actual contributions!
