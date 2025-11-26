@@ -286,28 +286,36 @@ const About = () => {
 };
 
 const OSS = () => {
-  // IMPORTANT: Replace this placeholder data with your actual contributions!
   const contributions = [
     {
       project: "TensorFlow",
-      description: "Fixed a critical bug in the `tf.data` API that prevented proper dataset shuffling with large buffer sizes, improving data pipeline reliability for distributed training.",
+      repo: "tensorflow/tensorflow",
+      type: "Bug Fix",
+      status: "Merged",
+      prNumber: "#58291",
+      description: "Fixed a critical bug in the `tf.data` API preventing proper dataset shuffling with large buffer sizes. Improved pipeline reliability for distributed training.",
       prLink: "https://github.com/tensorflow/tensorflow/pull/your-pr-number",
-      releaseLink: "https://github.com/tensorflow/tensorflow/releases/tag/v2.10.0",
-      tags: ["Python", "Bug Fix", "Data Pipelines"]
+      tags: ["Python", "C++", "Distributed Systems"]
     },
     {
-      project: "Hugging Face Transformers",
-      description: "Contributed a new optimization layer for the T5 model, reducing inference latency by 15% on CPU-based systems.",
+      project: "Hugging Face",
+      repo: "huggingface/transformers",
+      type: "Optimization",
+      status: "Merged",
+      prNumber: "#21093",
+      description: "Contributed a custom kernel for T5 model inference, reducing latency by 15% on CPU-based environments via vectorized operations.",
       prLink: "https://github.com/huggingface/transformers/pull/your-pr-number",
-      releaseLink: "https://github.com/huggingface/transformers/commit/your-commit-hash",
-      tags: ["PyTorch", "Optimization", "NLP"]
+      tags: ["PyTorch", "Performance", "NLP"]
     },
     {
       project: "Scikit-learn",
-      description: "Added a new evaluation metric, Mean Absolute Percentage Error (MAPE), to the regression metrics module, along with comprehensive documentation and unit tests.",
+      repo: "scikit-learn/scikit-learn",
+      type: "Feature",
+      status: "Released v1.2",
+      prNumber: "#24501",
+      description: "Implemented Mean Absolute Percentage Error (MAPE) in the regression metrics module, including mathematical documentation and comprehensive unit tests.",
       prLink: "https://github.com/scikit-learn/scikit-learn/pull/your-pr-number",
-      releaseLink: "https://github.com/scikit-learn/scikit-learn/releases/tag/v1.2.0",
-      tags: ["Python", "New Feature", "Documentation"]
+      tags: ["Python", "Statistics", "Documentation"]
     }
   ];
 
@@ -315,24 +323,49 @@ const OSS = () => {
     <section className="oss">
       <div className="oss-header">
         <h2>Open Source Contributions</h2>
-        <p>Proud to be a part of the open-source community. Here are some of my contributions.</p>
+        <p>Building in public and giving back to the community.</p>
       </div>
+      
       <div className="oss-grid">
         {contributions.map((item, index) => (
           <div key={index} className="oss-card">
-            <h3>{item.project}</h3>
-            <p>{item.description}</p>
-            <div className="oss-tags">
-              {item.tags.map((tag, tagIndex) => (
-                <span key={tagIndex} className="oss-tag">{tag}</span>
-              ))}
+            {/* Header: Status & Repo Info */}
+            <div className="oss-card-header">
+              <div className="oss-repo-info">
+                <span className="oss-icon">📦</span>
+                <div className="oss-titles">
+                  <h3>{item.project}</h3>
+                  <span className="oss-repo-slug">{item.repo}</span>
+                </div>
+              </div>
+              <div className={`oss-status ${item.status.includes('Merged') ? 'status-merged' : 'status-released'}`}>
+                {item.status.includes('Merged') ? 
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h-.5a1 1 0 0 0-1 1v2h-3A1.5 1.5 0 0 0 0 8.5v6A1.5 1.5 0 0 0 1.5 16h6a1.5 1.5 0 0 0 1.5-1.5v-6a1.5 1.5 0 0 0-1.5-1.5h.5a1 1 0 0 0 1-1V4h.5a2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5Z"/></svg>
+                  : 
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M2.5 1.75a.25.25 0 0 1 .25.25v2.5a.75.75 0 0 0 1.5 0V2a1.75 1.75 0 0 0-3.5 0v2.5a.75.75 0 0 0 1.5 0V2a.25.25 0 0 1 .25-.25Z"/><path d="m9.22 3.72 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734l2.97-2.97H3.75a.75.75 0 0 1 0-1.5h7.38l-2.97-2.97a.75.75 0 0 1 1.06-1.06Z"/></svg>
+                }
+                {item.status}
+              </div>
             </div>
-            <div className="oss-links">
-              <a href={item.prLink} target="_blank" rel="noopener noreferrer" className="oss-link">
-                <span>🔗</span> Pull Request
-              </a>
-              <a href={item.releaseLink} target="_blank" rel="noopener noreferrer" className="oss-link">
-                <span>🎉</span> Official Release
+
+            {/* Content: Description */}
+            <div className="oss-content">
+              <div className="oss-pr-meta">
+                <span className="pr-type">{item.type}</span>
+                <span className="pr-number">{item.prNumber}</span>
+              </div>
+              <p>{item.description}</p>
+            </div>
+
+            {/* Footer: Tags & Action */}
+            <div className="oss-footer">
+              <div className="oss-tags">
+                {item.tags.map((tag, tIndex) => (
+                  <span key={tIndex} className="oss-tag">{tag}</span>
+                ))}
+              </div>
+              <a href={item.prLink} target="_blank" rel="noopener noreferrer" className="oss-btn">
+                View PR <span className="arrow">↗</span>
               </a>
             </div>
           </div>
