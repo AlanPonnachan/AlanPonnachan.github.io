@@ -389,7 +389,7 @@ const Projects = () => {
     },
     {
       title: "NLP Sentiment Analyzer",
-      category: "Natural Language Processing",
+      category: "NLP",
       description: "Multi-language sentiment analysis tool using transformer models for social media monitoring.",
       image: "/api/placeholder/400/250",
       technologies: ["Transformers", "BERT", "React", "PostgreSQL"],
@@ -398,7 +398,7 @@ const Projects = () => {
     },
     {
       title: "PredictFlow",
-      category: "Time Series Forecasting",
+      category: "Forecasting",
       description: "Automated forecasting pipeline for financial markets using ensemble deep learning methods.",
       image: "/api/placeholder/400/250",
       technologies: ["TensorFlow", "Prophet", "Airflow", "Redis"],
@@ -411,50 +411,60 @@ const Projects = () => {
     <section className="projects">
       <div className="projects-header">
         <h2>Featured ML Projects</h2>
-        <p>Showcasing machine learning solutions that bridge the gap between research and real-world applications</p>
+        <p>Bridging the gap between research and real-world impact.</p>
       </div>
       
       <div className="projects-grid">
         {projects.map((project, index) => (
           <div key={index} className="project-card">
-            <div className="project-image">
+            {/* Image Area with Overlay Badge */}
+            <div className="project-image-container">
               <img src={project.image} alt={project.title} />
-              <div className="project-category">{project.category}</div>
+              <div className="project-overlay"></div>
+              <span className="project-category">{project.category}</span>
             </div>
             
             <div className="project-content">
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
+              <div className="project-text">
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+              </div>
               
-              <div className="project-metrics">
+              {/* Metrics Grid */}
+              <div className="project-stats">
                 {Object.entries(project.metrics).map(([key, value]) => (
-                  <div key={key} className="metric-item">
-                    <span className="metric-label">{key}</span>
-                    <span className="metric-value">{value}</span>
+                  <div key={key} className="stat-item">
+                    <span className="stat-value">{value}</span>
+                    <span className="stat-label">{key}</span>
                   </div>
                 ))}
               </div>
               
+              {/* Tech Stack */}
               <div className="project-tech">
                 {project.technologies.map((tech, techIndex) => (
-                  <span key={techIndex} className="tech-badge">{tech}</span>
+                  <span key={techIndex} className="tech-pill">{tech}</span>
                 ))}
               </div>
               
-              <div className="project-links">
+              {/* Action Buttons */}
+              <div className="project-actions">
                 {project.links.github && (
-                  <a href={project.links.github} className="project-link">
-                    <span>📂</span> Code
+                  <a href={project.links.github} className="action-btn outline">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    Code
                   </a>
                 )}
                 {project.links.demo && (
-                  <a href={project.links.demo} className="project-link">
-                    <span>🚀</span> Demo
+                  <a href={project.links.demo} className="action-btn primary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    Live Demo
                   </a>
                 )}
                 {project.links.paper && (
-                  <a href={project.links.paper} className="project-link">
-                    <span>📄</span> Paper
+                  <a href={project.links.paper} className="action-btn outline">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    Paper
                   </a>
                 )}
               </div>
