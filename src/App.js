@@ -417,54 +417,58 @@ const Projects = () => {
       <div className="projects-grid">
         {projects.map((project, index) => (
           <div key={index} className="project-card">
-            {/* Image Area with Overlay Badge */}
-            <div className="project-image-container">
+            {/* Header Image Area */}
+            <div className="project-media">
               <img src={project.image} alt={project.title} />
-              <div className="project-overlay"></div>
-              <span className="project-category">{project.category}</span>
+              <div className="media-overlay"></div>
+              <span className="project-category-badge">{project.category}</span>
             </div>
             
-            <div className="project-content">
-              <div className="project-text">
+            <div className="project-body">
+              {/* Title & Desc */}
+              <div className="project-info">
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
               </div>
-              
-              {/* Metrics Grid */}
-              <div className="project-stats">
+
+              {/* Data Dashboard */}
+              <div className="project-metrics-dashboard">
                 {Object.entries(project.metrics).map(([key, value]) => (
-                  <div key={key} className="stat-item">
-                    <span className="stat-value">{value}</span>
-                    <span className="stat-label">{key}</span>
+                  <div key={key} className="dashboard-item">
+                    <span className="dashboard-value">{value}</span>
+                    <span className="dashboard-label">{key}</span>
                   </div>
                 ))}
               </div>
-              
+
               {/* Tech Stack */}
-              <div className="project-tech">
-                {project.technologies.map((tech, techIndex) => (
-                  <span key={techIndex} className="tech-pill">{tech}</span>
+              <div className="project-tech-stack">
+                {project.technologies.map((tech, i) => (
+                  <span key={i} className="tech-chip">{tech}</span>
                 ))}
               </div>
-              
-              {/* Action Buttons */}
-              <div className="project-actions">
-                {project.links.github && (
-                  <a href={project.links.github} className="action-btn outline">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                    Code
-                  </a>
-                )}
+
+              {/* Footer Actions */}
+              <div className="project-footer">
+                <div className="action-group">
+                  {project.links.github && (
+                    <a href={project.links.github} className="icon-link" aria-label="Code">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                      <span>Code</span>
+                    </a>
+                  )}
+                  {project.links.paper && (
+                    <a href={project.links.paper} className="icon-link" aria-label="Paper">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                      <span>Paper</span>
+                    </a>
+                  )}
+                </div>
+                
                 {project.links.demo && (
-                  <a href={project.links.demo} className="action-btn primary">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  <a href={project.links.demo} className="demo-btn">
                     Live Demo
-                  </a>
-                )}
-                {project.links.paper && (
-                  <a href={project.links.paper} className="action-btn outline">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                    Paper
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </a>
                 )}
               </div>
@@ -475,6 +479,7 @@ const Projects = () => {
     </section>
   );
 };
+
 
 const Blog = () => {
   const posts = [

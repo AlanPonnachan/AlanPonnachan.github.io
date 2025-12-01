@@ -841,84 +841,87 @@ body {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   gap: 32px;
 }
 
-/* Modern Card Structure */
+/* Modern Project Card */
 .project-card {
   background: var(--card-background);
   border: 1px solid var(--border-color);
-  border-radius: 24px;
+  border-radius: 20px;
   overflow: hidden;
-  transition: all 0.4s ease;
-  backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
   position: relative;
+  height: 100%;
 }
 
-/* Hover Glow Effect (Consistent with other cards) */
+/* Hover Effects */
 .project-card:hover {
   transform: translateY(-8px);
   border-color: var(--border-color-strong);
-  box-shadow: 0 0 25px 5px var(--cursor-glow);
+  box-shadow: 0 0 30px 5px var(--cursor-glow);
 }
 
-/* Image Area */
-.project-image-container {
+/* 1. Media Area */
+.project-media {
   position: relative;
   height: 220px;
   overflow: hidden;
+  border-bottom: 1px solid var(--border-color);
 }
 
-.project-image-container img {
+.project-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.project-card:hover .project-image-container img {
-  transform: scale(1.08);
+.project-card:hover .project-media img {
+  transform: scale(1.05);
 }
 
-/* Gradient Overlay on Image */
-.project-overlay {
+.media-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, transparent 0%, rgba(10, 10, 10, 0.6) 100%);
-  opacity: 0.6;
+  background: linear-gradient(to top, rgba(10,10,10, 0.8), transparent);
+  pointer-events: none;
 }
 
-.project-category {
+.project-category-badge {
   position: absolute;
   top: 16px;
   right: 16px;
-  background: rgba(15, 15, 15, 0.7);
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(8px);
   color: #fff;
-  padding: 6px 14px;
-  border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 600;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* Content Area */
-.project-content {
+/* 2. Body Content */
+.project-body {
   padding: 28px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  gap: 20px;
 }
 
-.project-text h3 {
+.project-info h3 {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 10px;
@@ -926,127 +929,129 @@ body {
   line-height: 1.2;
 }
 
-.project-text p {
+.project-info p {
   color: var(--text-secondary);
   font-size: 0.95rem;
   line-height: 1.6;
-  margin-bottom: 24px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  margin: 0;
 }
 
-/* Stats/Metrics Bar */
-.project-stats {
+/* 3. Dashboard Metrics Style */
+.project-metrics-dashboard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   background: var(--background-color);
-  border-radius: 12px;
-  padding: 12px;
-  margin-bottom: 24px;
   border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 12px 0;
 }
 
-.stat-item {
+.dashboard-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  position: relative;
+  border-right: 1px solid var(--border-color);
+  padding: 0 8px;
 }
 
-.stat-item:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 10%;
-  height: 80%;
-  width: 1px;
-  background: var(--border-color);
+.dashboard-item:last-child {
+  border-right: none;
 }
 
-.stat-value {
+.dashboard-value {
+  font-family: 'Fira Code', monospace;
   font-size: 1rem;
   font-weight: 700;
+  color: var(--gradient-start);
   background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.stat-label {
+.dashboard-label {
   font-size: 0.7rem;
-  color: var(--text-secondary);
   text-transform: uppercase;
-  margin-top: 2px;
+  color: var(--text-secondary);
+  margin-top: 4px;
   font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
-/* Tech Stack Pills */
-.project-tech {
+/* 4. Tech Chips */
+.project-tech-stack {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 28px;
 }
 
-.tech-pill {
-  font-family: 'Fira Code', monospace;
+.tech-chip {
   font-size: 0.8rem;
   color: var(--text-secondary);
   background: var(--hero-glow-1);
-  padding: 4px 12px;
-  border-radius: 6px;
   border: 1px solid var(--border-color-strong);
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: all 0.2s;
 }
 
-/* Action Footer */
-.project-actions {
+.project-card:hover .tech-chip {
+  border-color: var(--gradient-start);
+  background: var(--background-color);
+}
+
+/* 5. Footer Actions */
+.project-footer {
   margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px dashed var(--border-color);
   display: flex;
-  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.action-btn {
-  flex: 1;
+.action-group {
+  display: flex;
+  gap: 16px;
+}
+
+.icon-link {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 0.9rem;
+  gap: 6px;
+  color: var(--text-secondary);
   text-decoration: none;
-  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
 }
 
-.action-btn.primary {
-  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-  color: white;
-  border: none;
+.icon-link:hover {
+  color: var(--gradient-start);
+}
+
+.demo-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--gradient-start);
+  color: white; /* Always white for contrast */
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
   box-shadow: 0 4px 15px var(--hero-glow-1);
 }
 
-.action-btn.primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px var(--hero-glow-2);
+.demo-btn:hover {
+  background: var(--gradient-end);
+  transform: translateX(3px);
+  box-shadow: 0 6px 20px var(--hero-glow-2);
 }
-
-.action-btn.outline {
-  background: transparent;
-  color: var(--text-primary);
-  border: 1px solid var(--border-color-strong);
-}
-
-.action-btn.outline:hover {
-  background: var(--hero-glow-1);
-  border-color: var(--gradient-start);
-  color: var(--gradient-start);
-  transform: translateY(-2px);
-}
-
 
 /* Blog Section */
 .blog { padding: 80px 0; }
