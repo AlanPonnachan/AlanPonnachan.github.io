@@ -36,32 +36,66 @@ const Preloader = ({ loading }) => {
   );
 };
 
-const Navigation = ({ activeSection, onNavigate, theme, toggleTheme }) => { // 1. Accept new props
+const Navigation = ({ activeSection, onNavigate, theme, toggleTheme }) => {
   const navItems = [
-    { name: 'Home', icon: '🏠' },
-    { name: 'About', icon: '🧠' },
-    { name: 'OSS', icon: '🧑‍💻' },
-    { name: 'Projects', icon: '🤖' },
-    { name: 'Blog', icon: '📊' },
-    { name: 'Contact', icon: '📧' } 
+    { 
+      name: 'Home', 
+      id: 'home',
+      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> 
+    },
+    { 
+      name: 'About', 
+      id: 'about',
+      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> 
+    },
+    { 
+      name: 'OSS', 
+      id: 'oss',
+      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg> 
+    },
+    { 
+      name: 'Projects', 
+      id: 'projects',
+      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg> 
+    },
+    { 
+      name: 'Blog', 
+      id: 'blog',
+      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> 
+    },
+    { 
+      name: 'Contact', 
+      id: 'contact',
+      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> 
+    }
   ];
   
   return (
     <nav className="navigation">
-      <div className="nav-items">
+      <div className="nav-dock">
         {navItems.map((item) => (
           <button
-            key={item.name}
-            className={`nav-item ${activeSection === item.name.toLowerCase() ? 'active' : ''}`}
-            onClick={() => onNavigate(item.name.toLowerCase())}
+            key={item.id}
+            className={`nav-item ${activeSection === item.id ? 'active' : ''}`}
+            onClick={() => onNavigate(item.id)}
+            aria-label={item.name}
           >
             <span className="nav-icon">{item.icon}</span>
-            {item.name}
+            <span className="nav-label">{item.name}</span>
+            {activeSection === item.id && <span className="active-indicator" />}
           </button>
         ))}
-        {/* 2. Add the theme toggle button here */}
-        <button className="nav-item theme-toggle" onClick={toggleTheme} title="Toggle theme">
-          <span className="nav-icon">{theme === 'dark' ? '☀️' : '🌙'}</span>
+        
+        <div className="nav-divider"></div>
+        
+        <button className="nav-item theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+          <span className="nav-icon">
+            {theme === 'dark' ? (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            ) : (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            )}
+          </span>
         </button>
       </div>
     </nav>
