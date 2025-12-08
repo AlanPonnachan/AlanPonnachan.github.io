@@ -197,11 +197,11 @@ const Hero = () => {
               <TypeAnimation
                 sequence={[
                   'ML Engineer',
-                  1500, // wait 1.5s
+                  1600, 
                   'OSS Contributor',
-                  1500, // wait 1.5s
+                  1600, 
                   'Applied AI Engineer',
-                  1500, // wait 1.5s
+                  1600, 
                 ]}
                 wrapper="span"
                 speed={50}
