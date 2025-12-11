@@ -246,7 +246,7 @@ const About = () => {
       role: "Senior ML Engineer",
       company: "TechCorp AI",
       period: "2022 - Present",
-      tech: ["PyTorch", "AWS SageMaker", "Kubernetes", "Redis"], // Added Tech
+      tech: ["PyTorch", "AWS SageMaker", "Kubernetes", "Redis"], 
       highlights: [
         "Architected a real-time computer vision pipeline increasing defect detection accuracy by 23% in manufacturing lines.",
         "Scaled recommendation inference engine to serve 1M+ daily active users with <50ms latency.",
@@ -257,7 +257,7 @@ const About = () => {
       role: "Data Scientist",
       company: "DataWorks Inc",
       period: "2020 - 2022",
-      tech: ["Python", "Scikit-learn", "Airflow", "PostgreSQL"], // Added Tech
+      tech: ["Python", "Scikit-learn", "Airflow", "PostgreSQL"], 
       highlights: [
         "Developed churn prediction models that identified high-risk customers, leading to a 35% reduction in churn.",
         "Built an automated ETL pipeline processing 100GB+ of daily structured data for downstream analytics.",
@@ -268,7 +268,7 @@ const About = () => {
       role: "ML Research Intern",
       company: "AI Research Lab",
       period: "2019 - 2020",
-      tech: ["TensorFlow", "Keras", "NumPy", "Pandas"], // Added Tech
+      tech: ["TensorFlow", "Keras", "NumPy", "Pandas"], 
       highlights: [
         "Investigated novel transformer architectures for multivariate time-series forecasting.",
         "Optimized data preprocessing workflows, reducing experiment turnaround time by 40%.",
