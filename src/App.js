@@ -102,42 +102,6 @@ const Navigation = ({ activeSection, onNavigate, theme, toggleTheme }) => {
   );
 };
 
-const AnimatedMetrics = () => {
-  const [metrics, setMetrics] = useState({
-    accuracy: 0,
-    models: 0,
-    datasets: 0
-  });
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setMetrics(prev => ({
-        accuracy: Math.min(prev.accuracy + 1, 95),
-        models: Math.min(prev.models + 1, 24),
-        datasets: Math.min(prev.datasets + 1, 47)
-      }));
-    }, 50);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="animated-metrics">
-      <div className="metric">
-        <div className="metric-value">{metrics.accuracy}%</div>
-        <div className="metric-label">Avg Model Accuracy</div>
-      </div>
-      <div className="metric">
-        <div className="metric-value">{metrics.models}+</div>
-        <div className="metric-label">ML Models Built</div>
-      </div>
-      <div className="metric">
-        <div className="metric-value">{metrics.datasets}</div>
-        <div className="metric-label">Datasets Analyzed</div>
-      </div>
-    </div>
-  );
-};
 
 const CodeAnimation = () => {
   const [currentLine, setCurrentLine] = useState(0);
@@ -214,13 +178,13 @@ const Hero = () => {
           </p>
           <div className="hero-cta">
             <button className="cta-primary">
-              <span>🤖</span> View My Work
+              <span></span> View My Work
             </button>
             <button className="cta-secondary">
-              <span>📧</span> Get In Touch
+              <span></span> Get In Touch
             </button>
           </div>
-          <AnimatedMetrics />
+          {/* <AnimatedMetrics /> */}
         </div>
         <div className="hero-visual">
           <CodeAnimation />
