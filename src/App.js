@@ -149,7 +149,7 @@ const CodeAnimation = () => {
   );
 };
 
-const Hero = () => {
+const Hero = ({ onNavigate }) => {
   return (
     <section className="hero">
       <div className="hero-content">
@@ -177,11 +177,11 @@ const Hero = () => {
             Architecting end-to-end machine learning solutions, from open-source foundations to production-scale deployment. Focused on building scalable, reliable systems that drive real-world results.
           </p>
           <div className="hero-cta">
-            <button className="cta-primary">
-              <span></span> View My Work
+            <button className="cta-primary" onClick={() => onNavigate('oss')}>
+              View My Work
             </button>
-            <button className="cta-secondary">
-              <span></span> Get In Touch
+            <button className="cta-secondary" onClick={() => onNavigate('contact')}>
+              Get In Touch
             </button>
           </div>
           {/* <AnimatedMetrics /> */}
@@ -643,15 +643,10 @@ function App() {
   const renderSection = () => {
     switch (activeSection) {
       case 'home':
-        return (
-          <>
-            <Hero />
-            
-          </>
-        );
+        return <Hero onNavigate={handleNavigation} />;
       case 'about':
         return <About />;
-      case 'oss': 
+      case 'oss':
         return <OSS />;
       case 'projects':
         return <Projects />;
@@ -660,12 +655,7 @@ function App() {
       case 'contact':
         return <Contact />;
       default:
-        return (
-          <>
-            <Hero />
-            
-          </>
-        );
+        return <Hero onNavigate={handleNavigation} />;
     }
   };
 
