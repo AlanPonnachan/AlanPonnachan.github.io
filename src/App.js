@@ -563,12 +563,12 @@ const Contact = () => {
       link: 'https://twitter.com/your-username', 
       username: '@your-username' 
     },
-    { 
-      name: 'Email', 
-      icon: '✉️', 
-      link: 'mailto:your.email@example.com', 
-      username: 'your.email@example.com' 
-    }
+    // { 
+    //   name: 'Email', 
+    //   icon: '✉️', 
+    //   link: 'mailto:your.email@example.com', 
+    //   username: 'your.email@example.com' 
+    // }
   ];
 
   return (
@@ -617,7 +617,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000); // Changed to 1 second
+    }, 600); // Changed to 1 second
 
     return () => clearTimeout(timer);
   }, []);
@@ -634,7 +634,7 @@ function App() {
     setTimeout(() => {
       setActiveSection(newSection); // Change the content
       setLoading(false); // Hide the preloader
-    }, 1000); // Wait for 1 second before showing the new section
+    }, 600); // Wait for 1 second before showing the new section
   };
 
 
