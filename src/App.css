@@ -686,6 +686,7 @@ body {
   margin: 0 auto;
 }
 
+/* 2 Cards per row layout */
 .oss-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -704,43 +705,41 @@ body {
   backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
-  height: 100%; /* Ensures equal height in grid */
+  height: 100%;
 }
 
-/* Glow effect inherited from your existing logic, 
-   but ensuring the transform works nicely */
 .oss-card:hover {
   transform: translateY(-5px);
   border-color: var(--border-color-strong);
-  box-shadow: 0 0 25px 5px var(--cursor-glow);
+  box-shadow: 0 0 30px 5px var(--cursor-glow);
 }
 
-/* Card Header */
+/* Header: Logo & Title */
 .oss-card-header {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  gap: 16px;
   margin-bottom: 20px;
   padding-bottom: 15px;
   border-bottom: 1px dashed var(--border-color);
 }
 
-.oss-repo-info {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.oss-icon {
-  font-size: 1.5rem;
-  background: var(--hero-glow-1);
-  width: 40px;
-  height: 40px;
+.oss-logo-container {
+  width: 48px;
+  height: 48px;
+  background: white; /* Most logos look better on white */
+  border-radius: 12px;
+  padding: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
   border: 1px solid var(--border-color-strong);
+}
+
+.oss-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .oss-titles {
@@ -749,7 +748,7 @@ body {
 }
 
 .oss-card h3 {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--text-primary);
   margin: 0;
@@ -757,60 +756,15 @@ body {
 
 .oss-repo-slug {
   font-family: 'Fira Code', monospace;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
   opacity: 0.8;
 }
 
-/* Status Badge (Merged vs Released) */
-.oss-status {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.status-merged {
-  background: rgba(139, 92, 246, 0.15); /* Purple tint */
-  color: #a78bfa;
-  border: 1px solid rgba(139, 92, 246, 0.3);
-}
-
-.status-released {
-  background: rgba(16, 185, 129, 0.15); /* Green tint */
-  color: #34d399;
-  border: 1px solid rgba(16, 185, 129, 0.3);
-}
-
-/* Content Area */
+/* Content */
 .oss-content {
-  flex-grow: 1; /* Pushes footer to bottom */
+  flex-grow: 1;
   margin-bottom: 24px;
-}
-
-.oss-pr-meta {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 12px;
-  font-size: 0.85rem;
-  font-family: 'Fira Code', monospace;
-}
-
-.pr-type {
-  color: var(--gradient-start);
-  font-weight: 600;
-}
-
-.pr-number {
-  color: var(--text-secondary);
-  background: var(--background-color);
-  padding: 0 6px;
-  border-radius: 4px;
 }
 
 .oss-content p {
@@ -820,7 +774,7 @@ body {
   margin: 0;
 }
 
-/* Footer & Actions */
+/* Footer Area */
 .oss-footer {
   display: flex;
   flex-direction: column;
@@ -841,43 +795,69 @@ body {
   font-size: 0.8rem;
   font-weight: 500;
   border: 1px solid var(--border-color);
-  transition: all 0.2s;
 }
 
-.oss-card:hover .oss-tag {
-  border-color: var(--border-color-strong);
+/* NEW BUTTON LAYOUT */
+.oss-action-area {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-/* The View PR Button */
+/* Common Button Styles */
 .oss-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  width: 100%;
   padding: 10px;
-  background: var(--background-color);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color-strong);
   border-radius: 8px;
   font-weight: 600;
   font-size: 0.9rem;
   text-decoration: none;
   transition: all 0.3s ease;
+  text-align: center;
 }
 
-.oss-btn .arrow {
-  transition: transform 0.3s ease;
-}
-
-.oss-btn:hover {
+/* Primary Button (View PR) - Top Middle */
+.oss-btn.primary-action {
+  width: 100%;
   background: var(--gradient-start);
   color: white;
-  border-color: var(--gradient-start);
+  border: none;
+  box-shadow: 0 4px 12px var(--hero-glow-1);
 }
 
-.oss-btn:hover .arrow {
-  transform: translate(2px, -2px);
+.oss-btn.primary-action:hover {
+  background: var(--gradient-end);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px var(--hero-glow-2);
+}
+
+/* Secondary Buttons Container - Left and Right */
+.oss-secondary-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2 Equal Columns */
+  gap: 12px;
+}
+
+/* If there's only 1 secondary link, span the full width */
+.oss-secondary-actions:has(> :only-child) {
+  grid-template-columns: 1fr;
+}
+
+/* Secondary Button Style */
+.oss-btn.secondary-action {
+  background: var(--background-color);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color-strong);
+  font-size: 0.85rem;
+}
+
+.oss-btn.secondary-action:hover {
+  border-color: var(--gradient-start);
+  color: var(--gradient-start);
+  background: var(--hero-glow-1);
 }
 
 /* Projects Section */

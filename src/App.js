@@ -288,32 +288,39 @@ const OSS = () => {
     {
       project: "TensorFlow",
       repo: "tensorflow/tensorflow",
-      type: "Bug Fix",
-      status: "Merged",
-      prNumber: "#58291",
+      // Use actual logos here. For now I'm using placeholder URLs
+      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg", 
       description: "Fixed a critical bug in the `tf.data` API preventing proper dataset shuffling with large buffer sizes. Improved pipeline reliability for distributed training.",
-      prLink: "https://github.com/tensorflow/tensorflow/pull/your-pr-number",
-      tags: ["Python", "C++", "Distributed Systems"]
+      tags: ["Python", "C++", "Distributed Systems"],
+      prLink: "#",
+      extraLinks: [
+        { label: "Engineering Blog", url: "#" },
+        { label: "Performance Benchmarks", url: "#" }
+      ]
     },
     {
       project: "Hugging Face",
       repo: "huggingface/transformers",
-      type: "Optimization",
-      status: "Merged",
-      prNumber: "#21093",
+      logo: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg",
       description: "Contributed a custom kernel for T5 model inference, reducing latency by 15% on CPU-based environments via vectorized operations.",
-      prLink: "https://github.com/huggingface/transformers/pull/your-pr-number",
-      tags: ["PyTorch", "Performance", "NLP"]
+      tags: ["PyTorch", "Performance", "NLP"],
+      prLink: "#",
+      extraLinks: [
+        { label: "Feature Deep Dive", url: "#" },
+        { label: "Release Notes", url: "#" }
+      ]
     },
     {
       project: "Scikit-learn",
       repo: "scikit-learn/scikit-learn",
-      type: "Feature",
-      status: "Released v1.2",
-      prNumber: "#24501",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg",
       description: "Implemented Mean Absolute Percentage Error (MAPE) in the regression metrics module, including mathematical documentation and comprehensive unit tests.",
-      prLink: "https://github.com/scikit-learn/scikit-learn/pull/your-pr-number",
-      tags: ["Python", "Statistics", "Documentation"]
+      tags: ["Python", "Statistics", "Math"],
+      prLink: "#",
+      extraLinks: [
+        { label: "Algorithm Spec", url: "#" }
+        // Example with only 1 extra link works too
+      ]
     }
   ];
 
@@ -327,44 +334,48 @@ const OSS = () => {
       <div className="oss-grid">
         {contributions.map((item, index) => (
           <div key={index} className="oss-card">
-            {/* Header: Status & Repo Info */}
+            {/* Header: Logo & Repo Info (Cleaned up) */}
             <div className="oss-card-header">
-              <div className="oss-repo-info">
-                <span className="oss-icon">📦</span>
-                <div className="oss-titles">
-                  <h3>{item.project}</h3>
-                  <span className="oss-repo-slug">{item.repo}</span>
-                </div>
+              <div className="oss-logo-container">
+                <img src={item.logo} alt={item.project} className="oss-logo" />
               </div>
-              <div className={`oss-status ${item.status.includes('Merged') ? 'status-merged' : 'status-released'}`}>
-                {item.status.includes('Merged') ? 
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h-.5a1 1 0 0 0-1 1v2h-3A1.5 1.5 0 0 0 0 8.5v6A1.5 1.5 0 0 0 1.5 16h6a1.5 1.5 0 0 0 1.5-1.5v-6a1.5 1.5 0 0 0-1.5-1.5h.5a1 1 0 0 0 1-1V4h.5a2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5Z"/></svg>
-                  : 
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M2.5 1.75a.25.25 0 0 1 .25.25v2.5a.75.75 0 0 0 1.5 0V2a1.75 1.75 0 0 0-3.5 0v2.5a.75.75 0 0 0 1.5 0V2a.25.25 0 0 1 .25-.25Z"/><path d="m9.22 3.72 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734l2.97-2.97H3.75a.75.75 0 0 1 0-1.5h7.38l-2.97-2.97a.75.75 0 0 1 1.06-1.06Z"/></svg>
-                }
-                {item.status}
+              <div className="oss-titles">
+                <h3>{item.project}</h3>
+                <span className="oss-repo-slug">{item.repo}</span>
               </div>
             </div>
 
-            {/* Content: Description */}
+            {/* Content: Description Only */}
             <div className="oss-content">
-              <div className="oss-pr-meta">
-                <span className="pr-type">{item.type}</span>
-                <span className="pr-number">{item.prNumber}</span>
-              </div>
               <p>{item.description}</p>
             </div>
 
-            {/* Footer: Tags & Action */}
+            {/* Footer: Tags & New Button Layout */}
             <div className="oss-footer">
               <div className="oss-tags">
                 {item.tags.map((tag, tIndex) => (
                   <span key={tIndex} className="oss-tag">{tag}</span>
                 ))}
               </div>
-              <a href={item.prLink} target="_blank" rel="noopener noreferrer" className="oss-btn">
-                View PR <span className="arrow">↗</span>
-              </a>
+
+              <div className="oss-action-area">
+                {/* Top Button: View PR */}
+                <a href={item.prLink} target="_blank" rel="noopener noreferrer" className="oss-btn primary-action">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  View Pull Request
+                </a>
+
+                {/* Bottom Buttons: Feature/Context Links */}
+                {item.extraLinks && item.extraLinks.length > 0 && (
+                  <div className="oss-secondary-actions">
+                    {item.extraLinks.map((link, lIndex) => (
+                      <a key={lIndex} href={link.url} target="_blank" rel="noopener noreferrer" className="oss-btn secondary-action">
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         ))}
