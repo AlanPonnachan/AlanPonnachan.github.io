@@ -395,7 +395,6 @@ const Projects = () => {
       description: "Real-time object detection system for manufacturing quality control using custom YOLO architecture.",
       image: "/api/placeholder/400/250",
       technologies: ["PyTorch", "OpenCV", "FastAPI", "Docker"],
-      metrics: { accuracy: "94%", speed: "30 FPS", deployment: "Production" },
       links: { github: "#", demo: "#", paper: "#" }
     },
     {
@@ -404,7 +403,6 @@ const Projects = () => {
       description: "Multi-language sentiment analysis tool using transformer models for social media monitoring.",
       image: "/api/placeholder/400/250",
       technologies: ["Transformers", "BERT", "React", "PostgreSQL"],
-      metrics: { accuracy: "89%", languages: "12", users: "50K+" },
       links: { github: "#", demo: "#" }
     },
     {
@@ -413,7 +411,6 @@ const Projects = () => {
       description: "Automated forecasting pipeline for financial markets using ensemble deep learning methods.",
       image: "/api/placeholder/400/250",
       technologies: ["TensorFlow", "Prophet", "Airflow", "Redis"],
-      metrics: { accuracy: "87%", latency: "< 100ms", data: "1TB+" },
       links: { github: "#", paper: "#" }
     }
   ];
@@ -442,17 +439,7 @@ const Projects = () => {
                 <p>{project.description}</p>
               </div>
 
-              {/* Data Dashboard */}
-              <div className="project-metrics-dashboard">
-                {Object.entries(project.metrics).map(([key, value]) => (
-                  <div key={key} className="dashboard-item">
-                    <span className="dashboard-value">{value}</span>
-                    <span className="dashboard-label">{key}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Tech Stack */}
+              {/* Tech Stack - Moved up since metrics are gone */}
               <div className="project-tech-stack">
                 {project.technologies.map((tech, i) => (
                   <span key={i} className="tech-chip">{tech}</span>
@@ -490,7 +477,6 @@ const Projects = () => {
     </section>
   );
 };
-
 
 const Blog = () => {
   const posts = [
