@@ -1132,16 +1132,46 @@ body {
 .blog { padding: 80px 0; }
 .blog-header { text-align: center; margin-bottom: 60px; }
 .blog-header p { font-size: 1.1rem; color: var(--text-secondary); }
-.blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 32px; }
+.blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
 .blog-card { border-radius: 16px; padding: 28px; }
-.blog-category { display: inline-block; background: var(--hero-glow-1); color: var(--gradient-start); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 500; margin-bottom: 16px; border: 1px solid var(--border-color-strong); }
+/* .blog-category { display: inline-block; background: var(--hero-glow-1); color: var(--gradient-start); padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 500; margin-bottom: 16px; border: 1px solid var(--border-color-strong); } */
 .blog-card h3 { font-size: 1.4rem; font-weight: 600; margin-bottom: 12px; color: var(--text-primary); line-height: 1.4; }
 .blog-card p { color: var(--text-secondary); margin-bottom: 20px; line-height: 1.6; }
 .blog-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
 .blog-tag { background: var(--hero-glow-1); color: var(--text-secondary); padding: 4px 10px; border-radius: 15px; font-size: 0.8rem; font-weight: 500; }
 .blog-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-size: 0.9rem; color: var(--text-secondary); }
-.read-more { background: none; border: none; color: var(--gradient-start); cursor: pointer; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; display: flex; align-items: center; gap: 8px; padding: 0; }
-.read-more:hover { color: var(--gradient-end); transform: translateX(5px); }
+/* Read More Link Styling */
+.read-more {
+  text-decoration: none; 
+  background: transparent;
+  border: none;
+  
+  color: var(--gradient-start);
+  font-weight: 600;
+  font-size: 0.95rem;
+  
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* Space between text and arrow */
+  
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+/* 2. Target the arrow span specifically */
+.read-more span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effects */
+.read-more:hover {
+  color: var(--gradient-end); /* Gradient color shift */
+}
+
+.read-more:hover span {
+  transform: translateX(6px); /* 3. Move ONLY the arrow on hover */
+}
 
 /* Contact Section */
 .contact { padding: 80px 0; }

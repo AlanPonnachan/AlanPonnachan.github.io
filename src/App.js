@@ -412,6 +412,14 @@ const Projects = () => {
       image: "/api/placeholder/400/250",
       technologies: ["LLM Integration", "Flask", "Data Modeling"],
       links: { github: "https://github.com/AlanPonnachan/smart-office-booking-ai" }
+    },
+    {
+      title: "Transformers Timeline",
+      category: "AI",
+      description: "The Adaptive Office Seat Booking System: Intelligent Seat Reservations Powered by LLMs",
+      image: "/api/placeholder/400/250",
+      technologies: ["Transformers", "NLP Model Catalog", "Hugging Face"],
+      links: { github: "https://github.com/AlanPonnachan/transformers-timeline/", demo: "https://alanponnachan.github.io/transformers-timeline/"  }
     }
   ];
 
@@ -498,29 +506,15 @@ const Projects = () => {
 const Blog = () => {
   const posts = [
     {
-      title: "Understanding Transformer Architecture: A Deep Dive",
-      excerpt: "Exploring the mechanics behind attention mechanisms and how transformers revolutionized NLP.",
-      date: "2024-01-15",
-      readTime: "8 min read",
+      title: "LLM Evolution in Enterprise",
+      excerpt: "A Brief history of LLMs in Production",
+      date: "2025-10-04",
+      readTime: "120 min read",
       category: "Deep Learning",
-      tags: ["Transformers", "Attention", "NLP"]
+      tags: ["Transformers", "Attention", "NLP", "History"],
+      link: "https://alanponnachan.github.io/llm-enterprise-evolution/"
     },
-    {
-      title: "MLOps Best Practices: From Model to Production",
-      excerpt: "A comprehensive guide to deploying ML models at scale with proper monitoring and versioning.",
-      date: "2024-01-02",
-      readTime: "12 min read",
-      category: "MLOps",
-      tags: ["Deployment", "Monitoring", "CI/CD"]
-    },
-    {
-      title: "Computer Vision Trends in 2024",
-      excerpt: "Latest developments in vision transformers, self-supervised learning, and edge deployment.",
-      date: "2023-12-20",
-      readTime: "6 min read",
-      category: "Computer Vision",
-      tags: ["Vision Transformers", "Edge AI", "Trends"]
-    }
+    
   ];
 
   return (
@@ -533,7 +527,7 @@ const Blog = () => {
       <div className="blog-grid">
         {posts.map((post, index) => (
           <article key={index} className="blog-card">
-            <div className="blog-category">{post.category}</div>
+            {/* <div className="blog-category">{post.category}</div> */}
             <h3>{post.title}</h3>
             <p>{post.excerpt}</p>
             
@@ -548,9 +542,14 @@ const Blog = () => {
               <span className="blog-read-time">{post.readTime}</span>
             </div>
             
-            <button className="read-more">
+            <a 
+              href={post.link} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="read-more"
+            >
               Read Article <span>→</span>
-            </button>
+            </a>
           </article>
         ))}
       </div>
@@ -719,10 +718,10 @@ function App() {
           <main className="main-content">
             {renderSection()}
           </main>
-          <div className="ai-assistant">
+          {/* <div className="ai-assistant">
             <div className="assistant-icon">🤖</div>
             <div className="assistant-pulse"></div>
-          </div>
+          </div> */}
         </>
       )}
     </div>
