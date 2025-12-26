@@ -970,7 +970,7 @@ body {
   pointer-events: none;
 }
 
-.project-category-badge {
+/* .project-category-badge {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -985,7 +985,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
+} */
 
 /* 2. Body Content */
 .project-body {
