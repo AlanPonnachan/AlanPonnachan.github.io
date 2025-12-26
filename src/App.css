@@ -846,18 +846,45 @@ body {
   grid-template-columns: 1fr;
 }
 
-/* Secondary Button Style */
+/* Secondary Button Style - Blue Tinted Button */
 .oss-btn.secondary-action {
-  background: var(--background-color);
-  color: var(--text-secondary);
-  border: 1px solid var(--border-color-strong);
+  background: rgba(102, 126, 234, 0.15);
+  color: var(--gradient-start);
+  
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  
   font-size: 0.85rem;
+  font-weight: 600;
+  
+  /*  Layout for icon */
+  display: flex;
+  justify-content: center; /* Center content */
+  align-items: center;
+  gap: 8px; /* Space between text and icon */
+  
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .oss-btn.secondary-action:hover {
+  /* On hover: Fill with solid blue/gradient like the primary button */
+  background: var(--gradient-start);
+  color: white;
   border-color: var(--gradient-start);
-  color: var(--gradient-start);
-  background: var(--hero-glow-1);
+  
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px var(--hero-glow-1);
+}
+
+/* Ensure the icon behaves nicely */
+.oss-btn.secondary-action svg {
+  opacity: 0.8;
+  transition: transform 0.3s ease;
+}
+
+.oss-btn.secondary-action:hover svg {
+  opacity: 1;
+  transform: translate(2px, -2px); /* Icon moves up-right on hover */
+  stroke: white; /* Ensure icon turns white on hover */
 }
 
 /* Projects Section */
