@@ -284,15 +284,21 @@ const About = () => {
 };
 
 const OSS = () => {
+  // Helper to extract logo from repo URL
+  const getGitHubLogo = (repoUrl) => {
+    // Splits "https://github.com/owner/repo" -> gets "owner"
+    const owner = repoUrl.split('github.com/')[1]?.split('/')[0];
+    return owner ? `https://github.com/${owner}.png` : null;
+  };
+
   const contributions = [
     {
       project: "TensorFlow",
       repo: "tensorflow/tensorflow",
-      // Use actual logos here. For now I'm using placeholder URLs
-      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg", 
+      // Logo is now auto-generated!
       description: "Fixed a critical bug in the `tf.data` API preventing proper dataset shuffling with large buffer sizes. Improved pipeline reliability for distributed training.",
       tags: ["Python", "C++", "Distributed Systems"],
-      prLink: "#",
+      prLink: "https://github.com/tensorflow/tensorflow/pull/123", 
       extraLinks: [
         { label: "Engineering Blog", url: "#" },
         { label: "Performance Benchmarks", url: "#" }
@@ -301,10 +307,9 @@ const OSS = () => {
     {
       project: "Hugging Face",
       repo: "huggingface/transformers",
-      logo: "https://huggingface.co/front/assets/huggingface_logo-noborder.svg",
       description: "Contributed a custom kernel for T5 model inference, reducing latency by 15% on CPU-based environments via vectorized operations.",
       tags: ["PyTorch", "Performance", "NLP"],
-      prLink: "#",
+      prLink: "https://github.com/huggingface/transformers/pull/456",
       extraLinks: [
         { label: "Feature Deep Dive", url: "#" },
         { label: "Release Notes", url: "#" }
@@ -313,13 +318,11 @@ const OSS = () => {
     {
       project: "Scikit-learn",
       repo: "scikit-learn/scikit-learn",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg",
       description: "Implemented Mean Absolute Percentage Error (MAPE) in the regression metrics module, including mathematical documentation and comprehensive unit tests.",
-      tags: ["Python", "Statistics", "Math"],
-      prLink: "#",
+      tags: ["Python", "Statistics", "Documentation"],
+      prLink: "https://github.com/scikit-learn/scikit-learn/pull/789",
       extraLinks: [
         { label: "Algorithm Spec", url: "#" }
-        // Example with only 1 extra link works too
       ]
     }
   ];
@@ -332,60 +335,59 @@ const OSS = () => {
       </div>
       
       <div className="oss-grid">
-        {contributions.map((item, index) => (
-          <div key={index} className="oss-card">
-            {/* Header: Logo & Repo Info (Cleaned up) */}
-            <div className="oss-card-header">
-              <div className="oss-logo-container">
-                <img src={item.logo} alt={item.project} className="oss-logo" />
+        {contributions.map((item, index) => {
+          // Generate logo URL dynamically
+          const logoUrl = getGitHubLogo(item.prLink) || getGitHubLogo(`https://github.com/${item.repo}`);
+          
+          return (
+            <div key={index} className="oss-card">
+              <div className="oss-card-header">
+                <div className="oss-logo-container">
+                  {/* Use the dynamic logoUrl */}
+                  <img src={logoUrl} alt={item.project} className="oss-logo" onError={(e) => e.target.style.display = 'none'} />
+                </div>
+                <div className="oss-titles">
+                  <h3>{item.project}</h3>
+                  <span className="oss-repo-slug">{item.repo}</span>
+                </div>
               </div>
-              <div className="oss-titles">
-                <h3>{item.project}</h3>
-                <span className="oss-repo-slug">{item.repo}</span>
+
+              <div className="oss-content">
+                <p>{item.description}</p>
+              </div>
+
+              <div className="oss-footer">
+                <div className="oss-tags">
+                  {item.tags.map((tag, tIndex) => (
+                    <span key={tIndex} className="oss-tag">{tag}</span>
+                  ))}
+                </div>
+
+                <div className="oss-action-area">
+                  <a href={item.prLink} target="_blank" rel="noopener noreferrer" className="oss-btn primary-action">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    View Pull Request
+                  </a>
+
+                  {item.extraLinks && item.extraLinks.length > 0 && (
+                    <div className="oss-secondary-actions">
+                      {item.extraLinks.map((link, lIndex) => (
+                        <a key={lIndex} href={link.url} target="_blank" rel="noopener noreferrer" className="oss-btn secondary-action">
+                          <span>{link.label}</span>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
-
-            {/* Content: Description Only */}
-            <div className="oss-content">
-              <p>{item.description}</p>
-            </div>
-
-            {/* Footer: Tags & New Button Layout */}
-            <div className="oss-footer">
-              <div className="oss-tags">
-                {item.tags.map((tag, tIndex) => (
-                  <span key={tIndex} className="oss-tag">{tag}</span>
-                ))}
-              </div>
-
-              <div className="oss-action-area">
-                {/* Top Button: View PR */}
-                <a href={item.prLink} target="_blank" rel="noopener noreferrer" className="oss-btn primary-action">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                  View Pull Request
-                </a>
-
-                {/* Bottom Buttons: Feature/Context Links */}
-                {item.extraLinks && item.extraLinks.length > 0 && (
-                  <div className="oss-secondary-actions">
-                    {item.extraLinks.map((link, lIndex) => (
-                      <a key={lIndex} href={link.url} target="_blank" rel="noopener noreferrer" className="oss-btn secondary-action">
-                        <span>{link.label}</span>
-                        {/* External Link Icon */}
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
 };
-
 
 const Projects = () => {
   const projects = [
@@ -562,28 +564,50 @@ const Contact = () => {
   const socials = [
     { 
       name: 'LinkedIn', 
-      icon: '💼', 
-      link: 'https://linkedin.com/in/your-username', 
-      username: 'your-username' 
+      // Official LinkedIn Logo
+      icon: (
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        </svg>
+      ),
+      link: 'https://www.linkedin.com/in/alan-ponnachan-92731a214/', 
+      // username: 'your-username' 
     },
     { 
       name: 'GitHub', 
-      icon: '📂', 
-      link: 'https://github.com/your-username', 
-      username: 'your-username' 
+      // Official GitHub Logo
+      icon: (
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+      ),
+      link: 'https://github.com/AlanPonnachan', 
+      // username: 'your-username' 
     },
     { 
-      name: 'Twitter', 
-      icon: '🐦', 
-      link: 'https://twitter.com/your-username', 
-      username: '@your-username' 
+      name: 'X (Twitter)', 
+      // Official X Logo
+      icon: (
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      ),
+      link: 'https://x.com/alan_ponnachan', 
+      // username: '@your-username' 
     },
-    // { 
-    //   name: 'Email', 
-    //   icon: '✉️', 
-    //   link: 'mailto:your.email@example.com', 
-    //   username: 'your.email@example.com' 
-    // }
+    // Uncomment for  email
+    /*
+    { 
+      name: 'Email', 
+      icon: (
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+      ),
+      link: 'mailto:your.email@example.com', 
+      username: 'your.email@example.com' 
+    }
+    */
   ];
 
   return (

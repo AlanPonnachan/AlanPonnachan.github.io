@@ -1174,14 +1174,81 @@ body {
 }
 
 /* Contact Section */
-.contact { padding: 80px 0; }
-.contact-header { text-align: center; margin-bottom: 60px; }
-.contact-header p { font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
-.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-.contact-card { border-radius: 16px; padding: 32px 24px; text-align: center; text-decoration: none; color: inherit; }
-.contact-icon { font-size: 3rem; margin-bottom: 20px; filter: drop-shadow(0 0 20px var(--hero-glow-1)); }
-.contact-card h3 { font-size: 1.5rem; font-weight: 600; margin-bottom: 12px; color: var(--text-primary); }
-.contact-card p { color: var(--text-secondary); font-size: 1rem; word-break: break-all; }
+.contact { 
+  padding: 80px 0; 
+}
+
+.contact-header { 
+  text-align: center; 
+  margin-bottom: 60px; 
+}
+
+.contact-header p { 
+  font-size: 1.1rem; 
+  color: var(--text-secondary); 
+  max-width: 600px; 
+  margin: 0 auto; 
+}
+
+.contact-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 24px; 
+}
+
+.contact-card { 
+  border-radius: 16px; 
+  padding: 32px 24px; 
+  text-align: center; 
+  text-decoration: none; 
+  color: inherit;
+  
+  /* Flex layout to center everything perfectly */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* UPDATED: Styles for SVG Icons */
+.contact-icon { 
+  width: 60px;   /* Fixed width for consistency */
+  height: 60px;  /* Fixed height */
+  margin-bottom: 20px; 
+  color: var(--text-secondary); /* Initial muted color */
+  transition: all 0.3s ease;
+  
+  /* Flex to center the SVG inside the container */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-icon svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.1));
+}
+
+/* Hover Effects: Icon lights up with theme color */
+.contact-card:hover .contact-icon {
+  color: var(--gradient-start);
+  transform: scale(1.1) translateY(-5px);
+  filter: drop-shadow(0 0 20px var(--hero-glow-1));
+}
+
+.contact-card h3 { 
+  font-size: 1.5rem; 
+  font-weight: 600; 
+  margin-bottom: 12px; 
+  color: var(--text-primary); 
+}
+
+.contact-card p { 
+  color: var(--text-secondary); 
+  font-size: 1rem; 
+  word-break: break-all; /* Prevents long URLs from breaking layout */
+}
 
 /* AI Assistant */
 .ai-assistant { background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%); box-shadow: 0 8px 32px var(--hero-glow-2); /* Other styles unchanged */ position: fixed; bottom: 30px; right: 30px; width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; z-index: 1000; }
