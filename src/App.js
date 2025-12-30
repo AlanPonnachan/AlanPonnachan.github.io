@@ -209,8 +209,8 @@ const About = () => {
     {
       role: "Senior ML Engineer",
       company: "TechCorp AI",
-      period: "2022 - Present",
-      tech: ["PyTorch", "AWS SageMaker", "Kubernetes", "Redis"], 
+      period: "Oct 2022 - Present",
+      tech: ["PyTorch", "AWS SageMaker", "Kubernetes", "Redis"],
       highlights: [
         "Architected a real-time computer vision pipeline increasing defect detection accuracy by 23% in manufacturing lines.",
         "Scaled recommendation inference engine to serve 1M+ daily active users with <50ms latency.",
@@ -220,8 +220,8 @@ const About = () => {
     {
       role: "Data Scientist",
       company: "DataWorks Inc",
-      period: "2020 - 2022",
-      tech: ["Python", "Scikit-learn", "Airflow", "PostgreSQL"], 
+      period: "Jan 2020 - Sep 2022",
+      tech: ["Python", "Scikit-learn", "Airflow", "PostgreSQL"],
       highlights: [
         "Developed churn prediction models that identified high-risk customers, leading to a 35% reduction in churn.",
         "Built an automated ETL pipeline processing 100GB+ of daily structured data for downstream analytics.",
@@ -231,8 +231,8 @@ const About = () => {
     {
       role: "ML Research Intern",
       company: "AI Research Lab",
-      period: "2019 - 2020",
-      tech: ["TensorFlow", "Keras", "NumPy", "Pandas"], 
+      period: "Jun 2019 - Dec 2019",
+      tech: ["TensorFlow", "Keras", "NumPy", "Pandas"],
       highlights: [
         "Investigated novel transformer architectures for multivariate time-series forecasting.",
         "Optimized data preprocessing workflows, reducing experiment turnaround time by 40%.",
@@ -248,19 +248,13 @@ const About = () => {
         <div className="experience-timeline">
           {experience.map((exp, index) => (
             <div key={index} className="experience-item">
-              <div className="timeline-connector">
-                <div className="timeline-dot"></div>
-                <div className="timeline-line"></div>
-              </div>
               <div className="exp-content">
                 <div className="exp-header">
-                  <div className="exp-role-wrapper">
+                  <div>
                     <h4>{exp.role}</h4>
                     <span className="exp-company">{exp.company}</span>
                   </div>
-                  <div className="exp-period-badge">
-                    <span>🗓️</span> {exp.period}
-                  </div>
+                  <span className="exp-period">{exp.period}</span>
                 </div>
                 
                 <ul className="exp-highlights">
@@ -293,38 +287,72 @@ const OSS = () => {
 
   const contributions = [
     {
-      project: "TensorFlow",
-      repo: "tensorflow/tensorflow",
-      // Logo is now auto-generated!
-      description: "Fixed a critical bug in the `tf.data` API preventing proper dataset shuffling with large buffer sizes. Improved pipeline reliability for distributed training.",
-      tags: ["Python", "C++", "Distributed Systems"],
-      prLink: "https://github.com/tensorflow/tensorflow/pull/123", 
+      project: "Litellm",
+      repo: "BerriAI/litellm",
+      description: "Implemented end-to-end support for Anthropic’s beta Memory tool by extending tool schemas, transformation logic, and header propagation.",
+      tags: ["Agent Memory", "Applied AI", "API Integration"],
+      prLink: "https://github.com/BerriAI/litellm/pull/16115", 
       extraLinks: [
-        { label: "Engineering Blog", url: "#" },
-        { label: "Performance Benchmarks", url: "#" }
+        { label: "Feature Deep Dive", url: "https://docs.litellm.ai/docs/providers/anthropic" },
+        { label: "Anthropic Guide", url: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool" },
       ]
     },
     {
-      project: "Hugging Face",
-      repo: "huggingface/transformers",
-      description: "Contributed a custom kernel for T5 model inference, reducing latency by 15% on CPU-based environments via vectorized operations.",
-      tags: ["PyTorch", "Performance", "NLP"],
-      prLink: "https://github.com/huggingface/transformers/pull/456",
+      project: "Pydantic",
+      repo: "pydantic/pydantic-ai",
+      description: "Designed and shipped runtime, context-aware configuration for built-in agent tools, enabling per-request parameterization and conditional tool availability.",
+      tags: ["LLM Agents", "Context-Aware Systems", "Tool Calling"],
+      prLink: "https://github.com/pydantic/pydantic-ai/pull/3600",
       extraLinks: [
-        { label: "Feature Deep Dive", url: "#" },
-        { label: "Release Notes", url: "#" }
+        { label: "Feature Deep Dive", url: "https://ai.pydantic.dev/builtin-tools/#dynamic-configuration" },
+        { label: "View Issue", url: "https://github.com/pydantic/pydantic-ai/issues/3555" }
       ]
     },
     {
-      project: "Scikit-learn",
-      repo: "scikit-learn/scikit-learn",
-      description: "Implemented Mean Absolute Percentage Error (MAPE) in the regression metrics module, including mathematical documentation and comprehensive unit tests.",
-      tags: ["Python", "Statistics", "Documentation"],
-      prLink: "https://github.com/scikit-learn/scikit-learn/pull/789",
+      project: "Huggingface",
+      repo: "huggingface/cookbook",
+      description: "Added a hands-on notebook to the Hugging Face Cookbook demonstrating how to build a documentation QA chatbot using synthetic data and efficient fine-tuning.",
+      tags: ["LLM Fine-Tuning", "Synthetic Data", "ML Pipelines"],
+      prLink: "https://github.com/huggingface/cookbook/pull/294",
       extraLinks: [
-        { label: "Algorithm Spec", url: "#" }
+        { label: "Cookbook", url: "https://huggingface.co/learn/cookbook/en/fine_tune_chatbot_docs_synthetic" },
+        { label: "Meta Synthetic Data Kit", url: "https://github.com/meta-llama/synthetic-data-kit" }
       ]
-    }
+    },
+    {
+      project: "Chonkie",
+      repo: "chonkie-inc/chonkie",
+      description: "Implemented an Elasticsearch-backed vector store for Chonkie, including automatic index creation, dense_vector mappings, bulk ingestion, and kNN search.",
+      tags: ["Vector Databases", "Semantic Search", "Retrieval Systems"],
+      prLink: "https://github.com/chonkie-inc/chonkie/pull/314", 
+      extraLinks: [
+        { label: "Feature Deep Dive", url: "https://docs.chonkie.ai/oss/handshakes/elastic-handshake" },
+        { label: "Elasticsearch", url: "https://www.elastic.co/elasticsearch/vector-database" },
+        
+      ]
+    },
+    {
+      project: "Huggingface",
+      repo: "huggingface/diffusers",
+      description: "Enabled up to ~3× faster diffusion inference in Diffusers by integrating MagCache, a magnitude-aware adaptive caching mechanism for transformer-based diffusion models.",
+      tags: ["Diffusion Models", "Inference Acceleration", "Adaptive Caching"],
+      prLink: "https://github.com/huggingface/diffusers/pull/12744",
+      extraLinks: [
+        { label: "Paper", url: "https://openreview.net/pdf?id=KZn7TDOL4J" },
+        { label: "Feature Deep Dive", url: "https://zehong-ma.github.io/MagCache/" }
+      ]
+    },
+    {
+      project: "Litellm",
+      repo: "BerriAI/litellm",
+      description: "Contributed a robust implementation of graduated tiered pricing to LiteLLM, fixing incorrect cost calculations and stabilizing fallback behavior.",
+      tags: ["Usage-Based Billing", "Backend Systems", "Applied AI"],
+      prLink: "https://github.com/BerriAI/litellm/pull/16150", 
+      extraLinks: [
+        { label: "Release Notes", url: "https://docs.litellm.ai/release_notes" },
+        { label: "Issue", url: "https://github.com/BerriAI/litellm/issues/15423" },
+      ]
+    },
   ];
 
   return (
