@@ -426,7 +426,7 @@ body {
 
 .experience-timeline {
   position: relative;
-  max-width: 900px; /* Optimal reading width */
+  max-width: 1000px; /* Optimal reading width */
   margin: 0 auto;
   padding-left: 40px; /* Space for the line */
 }
