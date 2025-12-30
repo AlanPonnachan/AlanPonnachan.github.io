@@ -207,39 +207,42 @@ const Hero = ({ onNavigate }) => {
 const About = () => {
   const experience = [
     {
-      role: "Senior ML Engineer",
-      company: "TechCorp AI",
-      period: "Oct 2022 - Present",
-      tech: ["PyTorch", "AWS SageMaker", "Kubernetes", "Redis"],
+      role: "Software Developer",
+      company: "Bosch",
+      period: "Oct 2024 - Present",
+      tech: ["PyTorch", "PostgreSQL", "FastAPI", "QLoRA", "RAG", "vLLM", "Transformers", "Docker"], 
       highlights: [
-        "Architected a real-time computer vision pipeline increasing defect detection accuracy by 23% in manufacturing lines.",
-        "Scaled recommendation inference engine to serve 1M+ daily active users with <50ms latency.",
-        "Established MLOps best practices, introducing automated model retraining and drift monitoring."
+        "Fine-tuned <b>Llama 3.2 Vision</b> via <b>QLoRA</b> on 1,000+ schematic tiles, achieving <b>91%</b> accuracy in structured pin-name extraction and outperforming traditional OCR baselines by <b>35%</b>.",
+        "Engineered a high-throughput inference pipeline using <b>vLLM</b> and sliding-window tiling, resolving high-resolution input constraints and reducing latency by <b>4x</b> for concurrent production workloads.",
+        "Architected a <b>Multi-Modal RAG</b> system combining <b>semantic search</b> for unstructured documents with Programmatic Tool Calling for Excel files, ensuring deterministic data aggregation and reducing extraction time by <b>65%</b>.",
+        "Engineered a <b>Stacking Regression pipeline</b> to predict dynamic signal guard bands, increasing testing yield by <b>15%</b> and automating calibration for over 200 ECU part numbers."
       ]
     },
     {
-      role: "Data Scientist",
-      company: "DataWorks Inc",
-      period: "Jan 2020 - Sep 2022",
-      tech: ["Python", "Scikit-learn", "Airflow", "PostgreSQL"],
+      role: "AI/ML Intern",
+      company: "Bosch",
+      period: "Jan 2024 - Jun 2024",
+      tech: ["PyTorch" , "pandas", "scikit-learn", "ResNet", "OpenCV"], 
       highlights: [
-        "Developed churn prediction models that identified high-risk customers, leading to a 35% reduction in churn.",
-        "Built an automated ETL pipeline processing 100GB+ of daily structured data for downstream analytics.",
-        "Published research on ensemble methods for time-series forecasting in a top-tier internal conference."
+        "Implemented a <b>ResNet-50</b>–based schematic comparison system with <b>90%</b> accuracy, reducing manual review time by 80% through automated difference detection in PDFs.",
+        "Leveraged <b>descriptive statistics</b> with pandas for analyzing voltage readings across diverse ECU datasets, leading to the accurate prediction of optimal minimum and maximum value of voltage readings.",
+
       ]
     },
-    {
-      role: "ML Research Intern",
-      company: "AI Research Lab",
-      period: "Jun 2019 - Dec 2019",
-      tech: ["TensorFlow", "Keras", "NumPy", "Pandas"],
-      highlights: [
-        "Investigated novel transformer architectures for multivariate time-series forecasting.",
-        "Optimized data preprocessing workflows, reducing experiment turnaround time by 40%.",
-        "Contributed to the lab's open-source utility library, receiving 1000+ stars on GitHub."
-      ]
-    }
+    
   ];
+
+  // Helper to safely parse bold tags
+  const renderHighlight = (text) => {
+    const parts = text.split(/(<b>.*?<\/b>)/g);
+    return parts.map((part, index) => {
+      if (part.startsWith('<b>') && part.endsWith('</b>')) {
+        return <strong key={index} className="highlight-text">{part.slice(3, -4)}</strong>;
+      }
+      return part;
+    });
+  };
+
 
   return (
     <section className="about">
@@ -259,7 +262,9 @@ const About = () => {
                 
                 <ul className="exp-highlights">
                   {exp.highlights.map((highlight, hIndex) => (
-                    <li key={hIndex}>{highlight}</li>
+                    <li key={hIndex}>
+                      {renderHighlight(highlight)}
+                    </li>
                   ))}
                 </ul>
 

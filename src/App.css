@@ -607,6 +607,19 @@ body {
   }
 }
 
+/* Highlighted Text in Journey */
+.highlight-text {
+  color: var(--text-primary); /* Make it bright white/black */
+  font-weight: 700;
+  /* Optional: Add a subtle underline color */
+  border-bottom: 1px solid var(--border-color-strong);
+}
+
+.experience-item:hover .highlight-text {
+  color: var(--gradient-start); /* Turns purple/blue on hover */
+  border-bottom-color: var(--gradient-start);
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .experience-timeline {
