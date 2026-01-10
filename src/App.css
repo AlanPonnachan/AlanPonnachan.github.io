@@ -1283,8 +1283,8 @@ body {
   /* --- 1. Navigation (Floating Dock Fix) --- */
   .navigation {
     /* Reset desktop positioning */
-    top: auto; 
-    bottom: 30px; /* Dock at the bottom */
+    top: 20px; 
+    bottom: auto;
     
     /* Keep centering logic */
     left: 50%;
