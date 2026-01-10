@@ -1280,30 +1280,190 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .navigation { flex-direction: column; gap: 12px; padding: 16px 20px; position: relative; top: 0; transform: none; margin: 15px; width: calc(100% - 30px); }
-  .nav-items { margin: 0; justify-content: center; }
-  .main-content { padding-top: 20px; padding-left: 16px; padding-right: 16px; }
-  .hero-content { grid-template-columns: 1fr; gap: 40px; text-align: center; }
-  .hero h1 { font-size: 2.5rem; }
-  .animated-metrics { justify-content: center; }
-  .about-intro { grid-template-columns: 1fr; gap: 40px; }
-  .experience-timeline { padding-left: 30px; }
-  .exp-content { margin-left: 10px; }
-  .exp-period { margin-left: 0; margin-top: 8px; }
-  .projects-grid, .domains-grid, .skills-grid, .blog-grid, .contact-grid { grid-template-columns: 1fr; }
-  .project-metrics { flex-direction: column; gap: 12px; }
-  .hero-cta { flex-direction: column; align-items: center; }
-  .cta-primary, .cta-secondary { width: 200px; justify-content: center; }
+  /* --- 1. Navigation (Floating Dock Fix) --- */
+  .navigation {
+    /* Reset desktop positioning */
+    top: auto; 
+    bottom: 30px; /* Dock at the bottom */
+    
+    /* Keep centering logic */
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* Reset sizing */
+    width: auto;
+    max-width: 90%;
+    margin: 0;
+    padding: 0;
+    
+    /* Remove old flex column layout */
+    flex-direction: row; 
+  }
+
+  .nav-dock {
+    padding: 10px 16px;
+    background: rgba(10, 10, 10, 0.85);
+    border: 2px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(20px);
+    gap: 12px;
+  }
+
+  /* Hide text labels on mobile to save space */
+  .nav-label {
+    display: none;
+  }
+
+  .nav-item {
+    padding: 10px;
+    border-radius: 50%; /* Circle shape on mobile */
+  }
+
+  .nav-item.active {
+    background: var(--hero-glow-1);
+    border: none;
+  }
+
+  /* --- 2. Hero Section --- */
+  .main-content {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero {
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr; /* Stack vertically */
+    gap: 40px;
+    justify-items: center; /* Center align items */
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .cta-primary, .cta-secondary {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  /* --- 3. Code Animation (Hide or shrink on mobile) --- */
+  .hero-visual {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .code-animation {
+    font-size: 11px; /* Smaller text */
+  }
+
+  /* --- 4. Grids (Force 1 Column) --- */
+  .projects-grid, 
+  .domains-grid, 
+  .skills-grid, 
+  .blog-grid, 
+  .contact-grid,
+  .oss-grid,
+  .about-intro { 
+    grid-template-columns: 1fr; 
+  }
+
+  /* --- 5. About & Experience --- */
+  .about-header h2, 
+  .projects-header h2, 
+  .blog-header h2, 
+  .contact-header h2,
+  .experience-section h2,
+  .oss-header h2 {
+    font-size: 2.2rem; /* Smaller headers */
+  }
+
+  .experience-timeline {
+    padding-left: 0;
+    max-width: 100%;
+  }
+
+  .experience-timeline::before {
+    left: 8px; /* Move line to edge */
+  }
+
+  .experience-item::before {
+    left: -16px; /* Adjust dot position */
+    top: 26px; /* Align with new header position */
+  }
+
+  .exp-content {
+    margin-left: 20px; /* Make room for the line */
+    padding: 20px;
+  }
+
+  .exp-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  /* --- 6. Projects & OSS Cards --- */
+  .project-metrics-dashboard {
+    gap: 10px;
+  }
+  
+  .dashboard-value {
+    font-size: 0.9rem;
+  }
+
+  .oss-secondary-actions {
+    grid-template-columns: 1fr; /* Stack buttons on mobile */
+  }
+
+  /* --- 7. Utilities --- */
+  .ai-assistant {
+    width: 50px;
+    height: 50px;
+    bottom: 90px; /* Move up above nav bar */
+    right: 20px;
+  }
+
+  .assistant-icon {
+    font-size: 1.5rem;
+  }
+
+  .scroll-indicator {
+    display: none; /* Hide scroll indicator on mobile to save space */
+  }
 }
 
+/* Extra small devices */
 @media (max-width: 480px) {
-  .hero h1 { font-size: 2rem; }
-  .about-header h2, .projects-header h2, .blog-header h2, .contact-header h2 { font-size: 2.5rem; }
-  .animated-metrics { flex-direction: column; gap: 16px; }
-  .nav-items { flex-wrap: wrap; }
-  .code-animation { font-size: 11px; }
-  .ai-assistant { width: 60px; height: 60px; bottom: 20px; right: 20px; }
-  .assistant-icon { font-size: 1.5rem; }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .nav-dock {
+    gap: 4px;
+    padding: 8px;
+  }
+  
+  .nav-item {
+    padding: 8px;
+  }
 }
 
 
