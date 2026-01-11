@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
 import { TypeAnimation } from 'react-type-animation';
 
@@ -664,106 +665,76 @@ const Contact = () => {
 
 
 function App() {
-  const [activeSection, setActiveSection] = useState('home');
+  const location = useLocation();
+  const navigate = useNavigate();
+  
+  // Determine active section based on current URL path
+  // If path is '/', active section is 'home', otherwise remove the leading '/'
+  const activeSection = location.pathname === '/' ? 'home' : location.pathname.substring(1);
+
   const [loading, setLoading] = useState(true);
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
   const [showScrollIndicator, setShowScrollIndicator] = useState(false);
 
-  const [theme, setTheme] = useState(() => {
-    // Read theme from localStorage or default to 'dark'
-    return localStorage.getItem('theme') || 'dark';
-  });
-  
+  // Initial Load Effect
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000); 
 
-  const toggleTheme = () => {
-    setTheme(prevTheme => (prevTheme === 'dark' ? 'light' : 'dark'));
-  };
-  
-  // Effect to apply theme and save to localStorage
+    return () => clearTimeout(timer);
+  }, []); // Only runs on first website visit
+
+  // Theme Effect
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-
-  // 1. Update the initial load effect
+  // Scroll Indicator Logic
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 600); // Changed to 1 second
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  // 2. Create the new navigation handler function
-  const handleNavigation = (newSection) => {
-    // Don't do anything if clicking on the same section
-    if (newSection === activeSection) {
-      return;
-    }
-
-    setLoading(true); // Show the preloader
-
-    setTimeout(() => {
-      setActiveSection(newSection); // Change the content
-      setLoading(false); // Hide the preloader
-    }, 600); // Wait for 1 second before showing the new section
-  };
-
-
-   
-
-  const renderSection = () => {
-    switch (activeSection) {
-      case 'home':
-        return <Hero onNavigate={handleNavigation} />;
-      case 'about':
-        return <About />;
-      case 'oss':
-        return <OSS />;
-      case 'projects':
-        return <Projects />;
-      case 'blog':
-        return <Blog />;
-      case 'contact':
-        return <Contact />;
-      default:
-        return <Hero onNavigate={handleNavigation} />;
-    }
-  };
-
-
-   useEffect(() => {
     const handleScroll = () => {
-      // Hide indicator if user has scrolled down a bit
       if (window.scrollY > 50) {
         setShowScrollIndicator(false);
       } else {
-        // Otherwise, check if it should be visible
-        // (i.e., if there's content to scroll to)
         const isScrollable = document.documentElement.scrollHeight > window.innerHeight;
         setShowScrollIndicator(isScrollable);
       }
     };
-
-    // Run the check once after the new section has rendered
-    // A small timeout ensures the DOM has updated its scrollHeight
     const checkScrollable = () => setTimeout(handleScroll, 100);
-    
-    checkScrollable(); // Check on initial load/navigation
-    
+    checkScrollable();
     window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', checkScrollable); // Re-check on window resize
-
+    window.addEventListener('resize', checkScrollable);
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkScrollable);
     };
-  }, [activeSection, loading]); // Re-run this logic when the section changes or loading finishes
+  }, [location.pathname, loading]); // Check when URL changes or loading stops
+
+  const toggleTheme = () => {
+    setTheme(prevTheme => (prevTheme === 'dark' ? 'light' : 'dark'));
+  };
+
+  // Updated Navigation Handler
+  const handleNavigation = (sectionId) => {
+    if (sectionId === activeSection) return;
+
+    setLoading(true); // Show preloader
+    
+    setTimeout(() => {
+      // Navigate to the new URL
+      const path = sectionId === 'home' ? '/' : `/${sectionId}`;
+      navigate(path);
+      setLoading(false); // Hide preloader
+      window.scrollTo(0, 0); // Reset scroll to top
+    }, 1000);
+  };
 
   return (
     <div className="App">
       <Preloader loading={loading} />
       <ScrollIndicator isVisible={showScrollIndicator} />
+
       {!loading && (
         <>
           <Navigation 
@@ -773,7 +744,15 @@ function App() {
             toggleTheme={toggleTheme}
           />
           <main className="main-content">
-            {renderSection()}
+            <Routes>
+              <Route path="/" element={<Hero onNavigate={handleNavigation} />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/oss" element={<OSS />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<Hero onNavigate={handleNavigation} />} />
+            </Routes>
           </main>
           {/* <div className="ai-assistant">
             <div className="assistant-icon">🤖</div>
