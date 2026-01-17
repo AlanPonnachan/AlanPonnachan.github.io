@@ -316,15 +316,17 @@ const OSS = () => {
     },
     {
       project: "Huggingface",
-      repo: "huggingface/cookbook",
-      description: "Added a hands-on notebook to the Hugging Face Cookbook demonstrating how to build a documentation QA chatbot using synthetic data and efficient fine-tuning.",
-      tags: ["LLM Fine-Tuning", "Synthetic Data", "ML Pipelines"],
-      prLink: "https://github.com/huggingface/cookbook/pull/294",
+      repo: "huggingface/diffusers",
+      description: "Enabled up to ~3× faster diffusion inference in Diffusers by integrating MagCache, a magnitude-aware adaptive caching mechanism for transformer-based diffusion models.",
+      tags: ["Diffusion Models", "Inference Acceleration", "Adaptive Caching"],
+      prLink: "https://github.com/huggingface/diffusers/pull/12744",
       extraLinks: [
-        { label: "Cookbook", url: "https://huggingface.co/learn/cookbook/en/fine_tune_chatbot_docs_synthetic" },
-        { label: "Meta Synthetic Data Kit", url: "https://github.com/meta-llama/synthetic-data-kit" }
+        { label: "Paper", url: "https://openreview.net/pdf?id=KZn7TDOL4J" },
+        { label: "Feature Deep Dive", url: "https://zehong-ma.github.io/MagCache/" }
       ]
     },
+
+    
     {
       project: "Chonkie",
       repo: "chonkie-inc/chonkie",
@@ -339,13 +341,13 @@ const OSS = () => {
     },
     {
       project: "Huggingface",
-      repo: "huggingface/diffusers",
-      description: "Enabled up to ~3× faster diffusion inference in Diffusers by integrating MagCache, a magnitude-aware adaptive caching mechanism for transformer-based diffusion models.",
-      tags: ["Diffusion Models", "Inference Acceleration", "Adaptive Caching"],
-      prLink: "https://github.com/huggingface/diffusers/pull/12744",
+      repo: "huggingface/cookbook",
+      description: "Added a hands-on notebook to the Hugging Face Cookbook demonstrating how to build a documentation QA chatbot using synthetic data and efficient fine-tuning.",
+      tags: ["LLM Fine-Tuning", "Synthetic Data", "ML Pipelines"],
+      prLink: "https://github.com/huggingface/cookbook/pull/294",
       extraLinks: [
-        { label: "Paper", url: "https://openreview.net/pdf?id=KZn7TDOL4J" },
-        { label: "Feature Deep Dive", url: "https://zehong-ma.github.io/MagCache/" }
+        { label: "Cookbook", url: "https://huggingface.co/learn/cookbook/en/fine_tune_chatbot_docs_synthetic" },
+        { label: "Meta Synthetic Data Kit", url: "https://github.com/meta-llama/synthetic-data-kit" }
       ]
     },
     {
