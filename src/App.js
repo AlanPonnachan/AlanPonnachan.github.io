@@ -351,6 +351,17 @@ const OSS = () => {
       ]
     },
     {
+      project: "Pydantic",
+      repo: "pydantic/pydantic-ai",  //TODO: Update pr details
+      description: "Designed and shipped runtime, context-aware configuration for built-in agent tools, enabling per-request parameterization and conditional tool availability.",
+      tags: ["LLM Agents", "Context-Aware Systems", "Tool Calling"],
+      prLink: "https://github.com/pydantic/pydantic-ai/pull/3634",
+      extraLinks: [
+        { label: "Feature Deep Dive", url: "https://ai.pydantic.dev/builtin-tools/#dynamic-configuration" },
+        { label: "View Issue", url: "https://github.com/pydantic/pydantic-ai/issues/3555" }
+      ]
+    },
+    {
       project: "Litellm",
       repo: "BerriAI/litellm",
       description: "Contributed a robust implementation of graduated tiered pricing to LiteLLM, fixing incorrect cost calculations and stabilizing fallback behavior.",
