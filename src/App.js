@@ -352,8 +352,8 @@ const OSS = () => {
     },
     {
       project: "Pydantic",
-      repo: "pydantic/pydantic-ai",  //TODO: Update pr details
-      description: "Designed and shipped runtime, context-aware configuration for built-in agent tools, enabling per-request parameterization and conditional tool availability.",
+      repo: "pydantic/pydantic-ai",  //TODO: Update pr details - tags and extralinks
+      description: "Architected and shipped a unified content filtering system, normalizing disparate safety refusals across OpenAI, Azure, and Gemini into a centralized, observable exception hierarchy.",
       tags: ["LLM Agents", "Context-Aware Systems", "Tool Calling"],
       prLink: "https://github.com/pydantic/pydantic-ai/pull/3634",
       extraLinks: [
