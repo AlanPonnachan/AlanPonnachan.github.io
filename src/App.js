@@ -352,13 +352,13 @@ const OSS = () => {
     },
     {
       project: "Pydantic",
-      repo: "pydantic/pydantic-ai",  //TODO: Update pr details - tags and extralinks
+      repo: "pydantic/pydantic-ai",  
       description: "Architected and shipped a unified content filtering system, normalizing disparate safety refusals across OpenAI, Azure, and Gemini into a centralized, observable exception hierarchy.",
-      tags: ["LLM Agents", "Context-Aware Systems", "Tool Calling"],
+      tags: ["LLM Agents", "AI Safety", "System Architecture"],
       prLink: "https://github.com/pydantic/pydantic-ai/pull/3634",
       extraLinks: [
-        { label: "Feature Deep Dive", url: "https://ai.pydantic.dev/builtin-tools/#dynamic-configuration" },
-        { label: "View Issue", url: "https://github.com/pydantic/pydantic-ai/issues/3555" }
+        { label: "Feature Deep Dive", url: "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/multimodal/configure-safety-filters#gemini-api-in-vertex-ai" },
+        { label: "View Issue", url: "https://github.com/pydantic/pydantic-ai/issues/1035" }
       ]
     },
     {
