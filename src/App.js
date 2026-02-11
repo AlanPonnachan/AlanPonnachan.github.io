@@ -321,8 +321,8 @@ const OSS = () => {
       tags: ["Diffusion Models", "Inference Acceleration", "Adaptive Caching"],
       prLink: "https://github.com/huggingface/diffusers/pull/12744",
       extraLinks: [
-        { label: "Paper", url: "https://openreview.net/pdf?id=KZn7TDOL4J" },
-        { label: "Feature Deep Dive", url: "https://zehong-ma.github.io/MagCache/" }
+        { label: "Paper", url: "https://zehong-ma.github.io/MagCache/" },
+        { label: "Maintainer shoutout", url: "https://www.linkedin.com/posts/sayak-paul_new-caching-method-dropped-today-in-diffusers-activity-7424803254750023680-X6vF?utm_source=share&utm_medium=member_desktop&rcm=ACoAADYm_a8B4nAX3qQrUh9GvveO3NfR104LotM" }
       ]
     },
 
