@@ -293,28 +293,6 @@ const OSS = () => {
 
   const contributions = [
     {
-      project: "Litellm",
-      repo: "BerriAI/litellm",
-      description: "Implemented end-to-end support for Anthropic’s beta Memory tool by extending tool schemas, transformation logic, and header propagation.",
-      tags: ["Agent Memory", "Applied AI", "API Integration"],
-      prLink: "https://github.com/BerriAI/litellm/pull/16115", 
-      extraLinks: [
-        { label: "Feature Deep Dive", url: "https://docs.litellm.ai/docs/providers/anthropic" },
-        { label: "Anthropic Guide", url: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool" },
-      ]
-    },
-    {
-      project: "Pydantic",
-      repo: "pydantic/pydantic-ai",
-      description: "Designed and shipped runtime, context-aware configuration for built-in agent tools, enabling per-request parameterization and conditional tool availability.",
-      tags: ["LLM Agents", "Context-Aware Systems", "Tool Calling"],
-      prLink: "https://github.com/pydantic/pydantic-ai/pull/3600",
-      extraLinks: [
-        { label: "Feature Deep Dive", url: "https://ai.pydantic.dev/builtin-tools/#dynamic-configuration" },
-        { label: "View Issue", url: "https://github.com/pydantic/pydantic-ai/issues/3555" }
-      ]
-    },
-    {
       project: "Huggingface",
       repo: "huggingface/diffusers",
       description: "Enabled up to ~3× faster diffusion inference in Diffusers by integrating MagCache, a magnitude-aware adaptive caching mechanism for transformer-based diffusion models.",
@@ -326,6 +304,29 @@ const OSS = () => {
       ]
     },
 
+    {
+      project: "Pydantic",
+      repo: "pydantic/pydantic-ai",
+      description: "Designed and shipped runtime, context-aware configuration for built-in agent tools, enabling per-request parameterization and conditional tool availability.",
+      tags: ["LLM Agents", "Context-Aware Systems", "Tool Calling"],
+      prLink: "https://github.com/pydantic/pydantic-ai/pull/3600",
+      extraLinks: [
+        { label: "Feature Deep Dive", url: "https://ai.pydantic.dev/builtin-tools/#dynamic-configuration" },
+        { label: "View Issue", url: "https://github.com/pydantic/pydantic-ai/issues/3555" }
+      ]
+    },
+
+    {
+      project: "Litellm",
+      repo: "BerriAI/litellm",
+      description: "Implemented end-to-end support for Anthropic’s beta Memory tool by extending tool schemas, transformation logic, and header propagation.",
+      tags: ["Agent Memory", "Applied AI", "API Integration"],
+      prLink: "https://github.com/BerriAI/litellm/pull/16115", 
+      extraLinks: [
+        { label: "Feature Deep Dive", url: "https://docs.litellm.ai/docs/providers/anthropic" },
+        { label: "Anthropic Guide", url: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool" },
+      ]
+    },
     
     {
       project: "Chonkie",
