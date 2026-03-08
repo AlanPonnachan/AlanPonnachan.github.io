@@ -564,6 +564,15 @@ const Blog = () => {
       tags: ["Transformers", "Attention", "NLP", "History"],
       link: "https://alanponnachan.github.io/llm-enterprise-evolution/"
     },
+    {
+      title: "Making Video Diffusion 2.5x Faster",
+      excerpt: "My Journey Implementing MagCache in Diffusers",
+      date: "2026-02-01",
+      readTime: "5 min read",
+      category: "Deep Learning",
+      tags: ["Diffusers", "Cache", "Acceleration"],
+      link: "https://docs.google.com/document/d/1HvbI1eceYYl3C6-ep4R0h4HGvdR5yu7o4MFg9ZbC1qg/edit?usp=sharing"
+    }
     
   ];
 
