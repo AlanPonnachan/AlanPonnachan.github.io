@@ -303,6 +303,17 @@ const OSS = () => {
         { label: "Maintainer shoutout", url: "https://www.linkedin.com/posts/sayak-paul_new-caching-method-dropped-today-in-diffusers-activity-7424803254750023680-X6vF?utm_source=share&utm_medium=member_desktop&rcm=ACoAADYm_a8B4nAX3qQrUh9GvveO3NfR104LotM" }
       ]
     },
+     {
+      project: "Keras",
+      repo: "keras-team/keras",
+      description: "TODO",
+      tags: [" TODO"],
+      prLink: "https://github.com/keras-team/keras/pull/21953",
+      extraLinks: [
+        { label: "Paper", url: "https://zehong-ma.github.io/MagCache/" },
+        { label: "Maintainer shoutout", url: "https://www.linkedin.com/posts/sayak-paul_new-caching-method-dropped-today-in-diffusers-activity-7424803254750023680-X6vF?utm_source=share&utm_medium=member_desktop&rcm=ACoAADYm_a8B4nAX3qQrUh9GvveO3NfR104LotM" }
+      ]
+    },
 
     {
       project: "Pydantic",
