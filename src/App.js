@@ -306,7 +306,7 @@ const OSS = () => {
      {
       project: "Keras",
       repo: "keras-team/keras",
-      description: "TODO",
+      description: "Implemented Contrast Limited Adaptive Histogram Equalization (CLAHE) as a native Keras preprocessing layer, enabling adaptive local contrast enhancement for low-contrast and medical imaging workflows.",
       tags: [" TODO"],
       prLink: "https://github.com/keras-team/keras/pull/21953",
       extraLinks: [
