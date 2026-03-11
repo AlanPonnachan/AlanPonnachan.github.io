@@ -309,9 +309,9 @@ const OSS = () => {
       description: "Implemented Contrast Limited Adaptive Histogram Equalization (CLAHE) as a native Keras preprocessing layer, enabling adaptive local contrast enhancement for low-contrast and medical imaging workflows.",
       tags: ["Computer Vision", "Image Processing", "Medical Imaging"],
       prLink: "https://github.com/keras-team/keras/pull/21953",
-      extraLinks: [ //TODO: need to add links for this one
-        { label: "Paper", url: "https://zehong-ma.github.io/MagCache/" }, 
-        { label: "Maintainer shoutout", url: "https://www.linkedin.com/posts/sayak-paul_new-caching-method-dropped-today-in-diffusers-activity-7424803254750023680-X6vF?utm_source=share&utm_medium=member_desktop&rcm=ACoAADYm_a8B4nAX3qQrUh9GvveO3NfR104LotM" }
+      extraLinks: [
+        { label: "Paper", url: "https://www.cs.unc.edu/techreports/90-035.pdf" },
+        { label: "Feature Deep Dive", url: "https://pyimagesearch.com/2021/02/01/opencv-histogram-equalization-and-adaptive-histogram-equalization-clahe/" }
       ]
     },
 
