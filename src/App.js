@@ -338,6 +338,17 @@ const OSS = () => {
         { label: "Anthropic Guide", url: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool" },
       ]
     },
+    {
+      project: "Pydantic",
+      repo: "pydantic/logfire",
+      description: "", //TODO
+      tags: [""], //TODO
+      prLink: "https://github.com/pydantic/logfire/pull/1697",
+      extraLinks: [ //TODO
+        { label: "Feature Deep Dive", url: "https://ai.pydantic.dev/builtin-tools/#dynamic-configuration" },
+        { label: "View Issue", url: "https://github.com/pydantic/pydantic-ai/issues/3555" }
+      ]
+    },
     
     {
       project: "Chonkie",
