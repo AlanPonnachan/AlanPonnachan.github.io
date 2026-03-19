@@ -341,12 +341,12 @@ const OSS = () => {
     {
       project: "Pydantic",
       repo: "pydantic/logfire",
-      description: "", //TODO
-      tags: [""], //TODO
+      description: "Built a secure, async OTLP telemetry proxy for Pydantic Logfire to safely route frontend traces, featuring memory-safe streaming and DoS prevention.",
+      tags: ["OpenTelemetry", "Observability", "Web Security", "AsyncIO"], 
       prLink: "https://github.com/pydantic/logfire/pull/1697",
       extraLinks: [ //TODO
-        { label: "Feature Deep Dive", url: "https://ai.pydantic.dev/builtin-tools/#dynamic-configuration" },
-        { label: "View Issue", url: "https://github.com/pydantic/pydantic-ai/issues/3555" }
+        { label: "Feature Deep Dive", url: "" },
+        { label: "View Issue", url: "" }
       ]
     },
     
