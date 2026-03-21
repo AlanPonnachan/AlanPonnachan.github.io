@@ -345,7 +345,7 @@ const OSS = () => {
       tags: ["OpenTelemetry", "Observability", "Web Security", "AsyncIO"], 
       prLink: "https://github.com/pydantic/logfire/pull/1697",
       extraLinks: [ //TODO
-        { label: "Feature Deep Dive", url: "" },
+        { label: "Feature Deep Dive", url: "https://logfire.pydantic.dev/docs/integrations/javascript/browser/" },
         { label: "View Issue", url: "" }
       ]
     },
@@ -392,7 +392,7 @@ const OSS = () => {
       prLink: "https://github.com/BerriAI/litellm/pull/16150", 
       extraLinks: [
         { label: "Release Notes", url: "https://docs.litellm.ai/release_notes" },
-        { label: "Issue", url: "https://github.com/BerriAI/litellm/issues/15423" },
+        { label: "View Issue", url: "https://github.com/BerriAI/litellm/issues/15423" },
       ]
     },
   ];
