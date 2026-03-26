@@ -384,17 +384,6 @@ const OSS = () => {
         { label: "View Issue", url: "https://github.com/pydantic/pydantic-ai/issues/1035" }
       ]
     },
-    {
-      project: "Litellm",
-      repo: "BerriAI/litellm",
-      description: "Contributed a robust implementation of graduated tiered pricing to LiteLLM, fixing incorrect cost calculations and stabilizing fallback behavior.",
-      tags: ["Usage-Based Billing", "Backend Systems", "Applied AI"],
-      prLink: "https://github.com/BerriAI/litellm/pull/16150", 
-      extraLinks: [
-        { label: "Release Notes", url: "https://docs.litellm.ai/release_notes" },
-        { label: "View Issue", url: "https://github.com/BerriAI/litellm/issues/15423" },
-      ]
-    },
   ];
 
   return (
