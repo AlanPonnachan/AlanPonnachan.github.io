@@ -328,17 +328,6 @@ const OSS = () => {
     },
 
     {
-      project: "Litellm",
-      repo: "BerriAI/litellm",
-      description: "Implemented end-to-end support for Anthropic’s beta Memory tool by extending tool schemas, transformation logic, and header propagation.",
-      tags: ["Agent Memory", "Applied AI", "API Integration"],
-      prLink: "https://github.com/BerriAI/litellm/pull/16115", 
-      extraLinks: [
-        { label: "Feature Deep Dive", url: "https://docs.litellm.ai/docs/providers/anthropic" },
-        { label: "Anthropic Guide", url: "https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool" },
-      ]
-    },
-    {
       project: "Pydantic",
       repo: "pydantic/logfire",
       description: "Built a secure, async OTLP telemetry proxy for Pydantic Logfire to safely route frontend traces, featuring memory-safe streaming and DoS prevention.",
