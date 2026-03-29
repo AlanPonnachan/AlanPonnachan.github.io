@@ -340,6 +340,18 @@ const OSS = () => {
     },
     
     {
+      project: "Pydantic",
+      repo: "pydantic/pydantic-ai",  
+      description: "Architected and shipped a unified content filtering system, normalizing disparate safety refusals across OpenAI, Azure, and Gemini into a centralized, observable exception hierarchy.",
+      tags: ["LLM Agents", "AI Safety", "Fault Tolerance","System Architecture"],
+      prLink: "https://github.com/pydantic/pydantic-ai/pull/3634",
+      extraLinks: [
+        { label: "Feature Deep Dive", url: "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/multimodal/configure-safety-filters#gemini-api-in-vertex-ai" },
+        { label: "View Issue", url: "https://github.com/pydantic/pydantic-ai/issues/1035" }
+      ]
+    },
+
+    {
       project: "Chonkie",
       repo: "chonkie-inc/chonkie",
       description: "Implemented an Elasticsearch-backed vector store for Chonkie, including automatic index creation, dense_vector mappings, bulk ingestion, and kNN search.",
@@ -362,17 +374,7 @@ const OSS = () => {
         { label: "Meta Synthetic Data Kit", url: "https://github.com/meta-llama/synthetic-data-kit" }
       ]
     },
-    {
-      project: "Pydantic",
-      repo: "pydantic/pydantic-ai",  
-      description: "Architected and shipped a unified content filtering system, normalizing disparate safety refusals across OpenAI, Azure, and Gemini into a centralized, observable exception hierarchy.",
-      tags: ["LLM Agents", "AI Safety", "Fault Tolerance","System Architecture"],
-      prLink: "https://github.com/pydantic/pydantic-ai/pull/3634",
-      extraLinks: [
-        { label: "Feature Deep Dive", url: "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/multimodal/configure-safety-filters#gemini-api-in-vertex-ai" },
-        { label: "View Issue", url: "https://github.com/pydantic/pydantic-ai/issues/1035" }
-      ]
-    },
+    
   ];
 
   return (
