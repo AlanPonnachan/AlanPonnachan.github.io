@@ -424,78 +424,97 @@ body {
   background-clip: text;
 }
 
+/* The Timeline Container */
 .experience-timeline {
   position: relative;
-  max-width: 1000px; /* Optimal reading width */
+  max-width: 950px;
   margin: 0 auto;
-  padding-left: 40px; /* Space for the line */
 }
 
-/* The Continuous Vertical Line */
+/* The Continuous Vertical Line (Gradient fade at ends) */
 .experience-timeline::before {
   content: '';
   position: absolute;
-  left: 0;
   top: 0;
   bottom: 0;
+  left: 7px; /* Centers exactly with the 16px dot */
   width: 2px;
-  background: var(--border-color-strong);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--border-color-strong) 5%,
+    var(--border-color-strong) 95%,
+    transparent
+  );
   border-radius: 2px;
 }
 
 .experience-item {
   position: relative;
-  margin-bottom: 60px;
+  padding-left: 48px;
+  margin-bottom: 40px;
 }
 
 .experience-item:last-child {
   margin-bottom: 0;
 }
 
-/* The Timeline Dot (Pseudo-element) */
+/* The Timeline Dot (Pulsating Ring Style) */
 .experience-item::before {
   content: '';
   position: absolute;
-  left: -44px; /* Align perfectly with vertical line */
-  top: 28px;
-  width: 10px;
-  height: 10px;
+  left: 0;
+  top: 32px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   background: var(--background-color);
-  border: 2px solid var(--text-secondary);
-  transition: all 0.3s ease;
+  border: 3px solid var(--border-color-strong);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   z-index: 1;
 }
 
 /* Dot Glow on Hover */
 .experience-item:hover::before {
-  background: var(--gradient-start);
   border-color: var(--gradient-start);
-  box-shadow: 0 0 15px var(--hero-glow-1);
+  background: var(--gradient-start);
+  box-shadow: 0 0 20px 4px var(--hero-glow-1);
   transform: scale(1.3);
 }
 
-/* Modern Card Content */
+/* Modern Glassmorphic Card Content */
 .exp-content {
   background: var(--card-background);
-  /* Glassmorphism subtle effect */
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-color);
-  
-  /* The "Accent" Border on the left */
-  border-left: 4px solid var(--border-color-strong);
-  
-  border-radius: 4px 12px 12px 4px; /* Square left, rounded right */
+  border-radius: 16px;
   padding: 32px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background gradient injection for hover */
+.exp-content::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at top right, var(--hero-glow-1), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
 }
 
 /* Hover Effect: Card Lifts & Glows */
 .experience-item:hover .exp-content {
-  transform: translateX(10px); /* Move slightly right */
-  border-left-color: var(--gradient-start); /* Light up the accent border */
-  box-shadow: 0 5px 30px -10px rgba(0,0,0,0.3);
-  background: linear-gradient(to right, var(--hero-glow-1), transparent);
+  transform: translateY(-5px);
+  border-color: var(--border-color-strong);
+  box-shadow: 0 15px 40px -10px var(--hero-glow-2);
+}
+
+.experience-item:hover .exp-content::after {
+  opacity: 1;
 }
 
 /* Header Typography */
@@ -504,154 +523,155 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 24px;
-  border-bottom: 1px dashed var(--border-color);
-  padding-bottom: 15px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
 }
 
-.exp-header h4 {
+.exp-role-wrapper h4 {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   letter-spacing: -0.5px;
 }
 
 .exp-company {
-  font-size: 1rem;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exp-company svg {
   color: var(--gradient-start);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 .exp-period {
   font-family: 'Fira Code', monospace;
   font-size: 0.85rem;
-  color: var(--text-secondary);
+  color: var(--gradient-start);
   background: var(--hero-glow-1);
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: 1px solid var(--border-color);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  white-space: nowrap;
 }
 
 /* Highlights */
 .exp-highlights {
   list-style: none;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
 }
 
 .exp-highlights li {
   position: relative;
-  padding-left: 20px;
-  margin-bottom: 10px;
+  padding-left: 24px;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.7;
   font-size: 1rem;
 }
 
 .exp-highlights li::before {
-  content: '•'; /* Simple bullet is cleaner */
-  color: var(--gradient-start);
+  content: '▹'; /* Modern sleek bullet */
   position: absolute;
   left: 0;
-  font-weight: bold;
+  top: -2px;
+  color: var(--gradient-start);
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.experience-item:hover .exp-highlights li::before {
+  transform: translateX(3px);
+}
+
+/* Highlighted Text in Journey */
+.highlight-text {
+  color: var(--text-primary);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.experience-item:hover .highlight-text {
+  color: var(--gradient-start);
 }
 
 /* Tech Stack Chips */
 .exp-tech-stack {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
 }
 
 .exp-tech-tag {
+  font-family: 'Fira Code', monospace;
   font-size: 0.8rem;
-  font-weight: 500;
-  color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.05);
-  padding: 4px 12px;
-  border-radius: 100px; /* Pill shape */
+  color: var(--text-secondary);
+  background: transparent;
+  padding: 6px 12px;
+  border-radius: 8px;
   border: 1px solid var(--border-color);
-  transition: all 0.2s;
+  transition: all 0.3s ease;
 }
 
 .experience-item:hover .exp-tech-tag {
-  border-color: var(--gradient-start);
-  background: var(--hero-glow-1);
+  border-color: var(--border-color-strong);
+  background: rgba(255, 255, 255, 0.03);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .experience-timeline {
-    padding-left: 20px; /* Less padding on mobile */
-  }
-  
-  .experience-timeline::before {
-    left: 0;
-  }
-  
-  .experience-item::before {
-    left: -24px; /* Adjust dot position for mobile */
-    top: 32px;
-  }
-  
-  .exp-header {
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .exp-period {
-    align-self: flex-start;
-  }
+.exp-tech-tag:hover {
+  background: var(--gradient-start) !important;
+  border-color: var(--gradient-start) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px var(--hero-glow-1);
 }
 
-/* Highlighted Text in Journey */
-.highlight-text {
-  color: var(--text-primary); /* Make it bright white/black */
-  font-weight: 700;
-  /* Optional: Add a subtle underline color */
-  border-bottom: 1px solid var(--border-color-strong);
-}
-
-.experience-item:hover .highlight-text {
-  color: var(--gradient-start); /* Turns purple/blue on hover */
-  border-bottom-color: var(--gradient-start);
-}
-
-/* Responsive Adjustments */
+/* Mobile Adjustments for Timeline */
 @media (max-width: 768px) {
   .experience-timeline {
     padding-left: 0;
   }
   
   .experience-timeline::before {
-    left: 9px;
+    left: 11px; /* Align with mobile dot */
+  }
+  
+  .experience-item {
+    padding-left: 36px;
   }
 
-  .timeline-connector {
-    min-width: 30px;
-  }
-
-  .timeline-dot {
-    left: 2px;
+  .experience-item::before {
+    left: 4px;
     width: 14px;
     height: 14px;
+    top: 28px;
   }
-
-  .timeline-line {
-    width: 20px;
-    left: 10px;
+  
+  .exp-content {
+    padding: 24px;
   }
 
   .exp-header {
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
   }
   
-  .exp-period-badge {
-    width: fit-content;
+  .exp-period {
+    align-self: flex-start;
   }
 }
 

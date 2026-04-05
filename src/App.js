@@ -244,7 +244,6 @@ const About = () => {
     });
   };
 
-
   return (
     <section className="about">
       <div className="experience-section">
@@ -254,9 +253,16 @@ const About = () => {
             <div key={index} className="experience-item">
               <div className="exp-content">
                 <div className="exp-header">
-                  <div>
+                  <div className="exp-role-wrapper">
                     <h4>{exp.role}</h4>
-                    <span className="exp-company">{exp.company}</span>
+                    <span className="exp-company">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                      </svg>
+                      {exp.company}
+                    </span>
                   </div>
                   <span className="exp-period">{exp.period}</span>
                 </div>
