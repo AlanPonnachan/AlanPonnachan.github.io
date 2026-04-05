@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
 import { TypeAnimation } from 'react-type-animation';
+import boschLogo from './assets/bosch_logo.svg';
 
 
 
@@ -210,6 +211,7 @@ const About = () => {
     {
       role: "Software Developer",
       company: "Bosch",
+      logo: boschLogo,
       period: "Oct 2024 - Present",
       tech: ["PyTorch", "PostgreSQL", "FastAPI", "QLoRA", "RAG", "vLLM", "Transformers", "Docker"], 
       highlights: [
@@ -222,6 +224,7 @@ const About = () => {
     {
       role: "AI/ML Intern",
       company: "Bosch",
+      logo: boschLogo,
       period: "Jan 2024 - Jun 2024",
       tech: ["PyTorch" , "pandas", "scikit-learn", "ResNet", "OpenCV"], 
       highlights: [
@@ -248,39 +251,48 @@ const About = () => {
     <section className="about">
       <div className="experience-section">
         <h2>Professional Journey</h2>
-        <div className="experience-timeline">
+        
+        <div className="sticky-timeline">
           {experience.map((exp, index) => (
-            <div key={index} className="experience-item">
-              <div className="exp-content">
-                <div className="exp-header">
-                  <div className="exp-role-wrapper">
-                    <h4>{exp.role}</h4>
-                    <span className="exp-company">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                      </svg>
-                      {exp.company}
-                    </span>
+            <div key={index} className="sticky-item">
+              
+              {/* LEFT COLUMN - Sticky Header */}
+              <div className="sticky-header">
+                <div className="sticky-header-content">
+                  <div className="company-logo-box">
+                    {exp.logo ? (
+                      <img src={exp.logo} alt={`${exp.company} logo`} className="company-svg" />
+                    ) : (
+                      <span className="logo-fallback">{exp.logoPlaceholder}</span>
+                    )}
                   </div>
-                  <span className="exp-period">{exp.period}</span>
-                </div>
-                
-                <ul className="exp-highlights">
-                  {exp.highlights.map((highlight, hIndex) => (
-                    <li key={hIndex}>
-                      {renderHighlight(highlight)}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="exp-tech-stack">
-                  {exp.tech.map((t, i) => (
-                    <span key={i} className="exp-tech-tag">{t}</span>
-                  ))}
+                  <div className="sticky-title-group">
+                    <span className="exp-period-badge">{exp.period}</span>
+                    <h4>{exp.role}</h4>
+                    <span className="exp-company-name">{exp.company}</span>
+                  </div>
                 </div>
               </div>
+
+              {/* RIGHT COLUMN - Scrolling Content */}
+              <div className="sticky-content">
+                <div className="sticky-content-card">
+                  <ul className="exp-highlights">
+                    {exp.highlights.map((highlight, hIndex) => (
+                      <li key={hIndex}>
+                        {renderHighlight(highlight)}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="exp-tech-stack">
+                    {exp.tech.map((t, i) => (
+                      <span key={i} className="exp-tech-tag">{t}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
             </div>
           ))}
         </div>

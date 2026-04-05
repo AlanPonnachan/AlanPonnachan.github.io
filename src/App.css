@@ -408,7 +408,7 @@ body {
 .about-image img { width: 100%; height: auto; border-radius: 20px; }
 .image-overlay { position: absolute; bottom: 20px; left: 20px; background: rgba(102, 126, 234, 0.9); color: white; padding: 8px 16px; border-radius: 25px; font-size: 14px; font-weight: 500; }
 
-/* Experience Timeline & About Structure */
+/* --- Experience Section (Sticky Scroll Layout) --- */
 .about {
   padding: 40px 0 80px;
 }
@@ -424,154 +424,119 @@ body {
   background-clip: text;
 }
 
-/* The Timeline Container */
-.experience-timeline {
-  position: relative;
-  max-width: 950px;
+.sticky-timeline {
+  max-width: 1000px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px; /* Space between different jobs */
 }
 
-/* The Continuous Vertical Line (Gradient fade at ends) */
-.experience-timeline::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 7px; /* Centers exactly with the 16px dot */
-  width: 2px;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    var(--border-color-strong) 5%,
-    var(--border-color-strong) 95%,
-    transparent
-  );
-  border-radius: 2px;
-}
-
-.experience-item {
+/* Individual Job Row Container */
+.sticky-item {
+  display: grid;
+  grid-template-columns: 350px 1fr; /* Desktop: Fixed left column, expanding right column */
+  gap: 40px;
   position: relative;
-  padding-left: 48px;
-  margin-bottom: 40px;
 }
 
-.experience-item:last-child {
-  margin-bottom: 0;
+/* -- Left Column: The Sticky Header -- */
+.sticky-header {
+  position: relative;
 }
 
-/* The Timeline Dot (Pulsating Ring Style) */
-.experience-item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 32px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--background-color);
-  border: 3px solid var(--border-color-strong);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  z-index: 1;
+.sticky-header-content {
+  /* This is what makes it stick! */
+  position: sticky;
+  top: 120px; /* Distance from top of screen when scrolling */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-/* Dot Glow on Hover */
-.experience-item:hover::before {
-  border-color: var(--gradient-start);
-  background: var(--gradient-start);
-  box-shadow: 0 0 20px 4px var(--hero-glow-1);
-  transform: scale(1.3);
+.company-logo-box {
+  width: 64px;
+  height: 64px;
+  background: #ffffff; /* White background makes most company SVGs look best */
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid var(--border-color-strong);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Modern Glassmorphic Card Content */
-.exp-content {
+.company-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.logo-fallback {
+  color: #000;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.sticky-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.exp-period-badge {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  color: var(--gradient-start);
+  background: var(--hero-glow-1);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 4px;
+}
+
+.sticky-title-group h4 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.exp-company-name {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* -- Right Column: Scrolling Content -- */
+.sticky-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.sticky-content-card {
   background: var(--card-background);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
   border: 1px solid var(--border-color);
   border-radius: 16px;
   padding: 32px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position: relative;
-  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-/* Background gradient injection for hover */
-.exp-content::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(circle at top right, var(--hero-glow-1), transparent 60%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
-/* Hover Effect: Card Lifts & Glows */
-.experience-item:hover .exp-content {
-  transform: translateY(-5px);
+.sticky-content-card:hover {
   border-color: var(--border-color-strong);
-  box-shadow: 0 15px 40px -10px var(--hero-glow-2);
+  box-shadow: 0 10px 40px var(--hero-glow-1);
 }
 
-.experience-item:hover .exp-content::after {
-  opacity: 1;
-}
-
-/* Header Typography */
-.exp-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 24px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  flex-wrap: wrap;
-  gap: 16px;
-  position: relative;
-  z-index: 2;
-}
-
-.exp-role-wrapper h4 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 6px;
-  letter-spacing: -0.5px;
-}
-
-.exp-company {
-  font-size: 1.05rem;
-  color: var(--text-secondary);
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.exp-company svg {
-  color: var(--gradient-start);
-}
-
-.exp-period {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.85rem;
-  color: var(--gradient-start);
-  background: var(--hero-glow-1);
-  padding: 6px 14px;
-  border-radius: 20px;
-  border: 1px solid rgba(102, 126, 234, 0.2);
-  white-space: nowrap;
-}
-
-/* Highlights */
+/* Highlights Content */
 .exp-highlights {
   list-style: none;
-  margin-bottom: 28px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  position: relative;
-  z-index: 2;
+  gap: 16px;
+  margin-bottom: 32px;
 }
 
 .exp-highlights li {
@@ -579,99 +544,90 @@ body {
   padding-left: 24px;
   color: var(--text-secondary);
   line-height: 1.7;
-  font-size: 1rem;
+  font-size: 1.05rem;
 }
 
 .exp-highlights li::before {
-  content: '▹'; /* Modern sleek bullet */
+  content: '▹'; /* Clean minimal bullet */
   position: absolute;
   left: 0;
   top: -2px;
   color: var(--gradient-start);
   font-size: 1.2rem;
-  transition: transform 0.3s ease;
 }
 
-.experience-item:hover .exp-highlights li::before {
-  transform: translateX(3px);
-}
-
-/* Highlighted Text in Journey */
+/* Preserved Highlighted Text Style */
 .highlight-text {
   color: var(--text-primary);
   font-weight: 600;
-  transition: color 0.3s ease;
+  border-bottom: 1px solid var(--border-color-strong);
 }
 
-.experience-item:hover .highlight-text {
+.sticky-content-card:hover .highlight-text {
   color: var(--gradient-start);
+  border-bottom-color: var(--gradient-start);
 }
 
-/* Tech Stack Chips */
+/* Tech Stack */
 .exp-tech-stack {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  position: relative;
-  z-index: 2;
+  padding-top: 24px;
+  border-top: 1px dashed var(--border-color);
 }
 
 .exp-tech-tag {
   font-family: 'Fira Code', monospace;
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  background: transparent;
-  padding: 6px 12px;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 14px;
   border-radius: 8px;
   border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
-.experience-item:hover .exp-tech-tag {
+.sticky-content-card:hover .exp-tech-tag {
+  background: var(--hero-glow-1);
   border-color: var(--border-color-strong);
-  background: rgba(255, 255, 255, 0.03);
 }
 
-.exp-tech-tag:hover {
-  background: var(--gradient-start) !important;
-  border-color: var(--gradient-start) !important;
-  color: #fff !important;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px var(--hero-glow-1);
-}
-
-/* Mobile Adjustments for Timeline */
-@media (max-width: 768px) {
-  .experience-timeline {
-    padding-left: 0;
-  }
-  
-  .experience-timeline::before {
-    left: 11px; /* Align with mobile dot */
-  }
-  
-  .experience-item {
-    padding-left: 36px;
+/* --- Mobile / Tablet Responsiveness --- */
+@media (max-width: 900px) {
+  .sticky-item {
+    grid-template-columns: 1fr; /* Switch to stacked layout */
+    gap: 20px;
   }
 
-  .experience-item::before {
-    left: 4px;
-    width: 14px;
-    height: 14px;
-    top: 28px;
+  .sticky-header-content {
+    /* Disable sticky on mobile so it flows naturally */
+    position: relative;
+    top: 0;
+    flex-direction: row; /* Put logo and title side-by-side */
+    align-items: center;
   }
-  
-  .exp-content {
+
+  .company-logo-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+  }
+
+  .sticky-title-group h4 {
+    font-size: 1.3rem;
+  }
+
+  .sticky-timeline {
+    gap: 60px; /* Less space between jobs on mobile */
+  }
+
+  .sticky-content-card {
     padding: 24px;
   }
 
-  .exp-header {
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .exp-period {
-    align-self: flex-start;
+  .exp-highlights li {
+    font-size: 0.95rem;
   }
 }
 
