@@ -1278,10 +1278,14 @@ body {
 
   .nav-dock {
     padding: 10px 16px;
-    background: rgba(10, 10, 10, 0.85);
-    border: 2px solid rgba(255,255,255,0.15);
+    background: var(--blur-background);
+    border: 2px solid var(--border-color-strong);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     gap: 12px;
+    
+    /* Stronger shadow to make it pop on mobile */
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.3);
   }
 
   /* Hide text labels on mobile to save space */
