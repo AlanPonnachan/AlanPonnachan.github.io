@@ -718,7 +718,7 @@ function App() {
   const activeSection = location.pathname === '/' ? 'home' : location.pathname.substring(1);
 
   const [loading, setLoading] = useState(true);
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'dark');
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
   const [showScrollIndicator, setShowScrollIndicator] = useState(false);
 
   // Initial Load Effect
