@@ -575,6 +575,16 @@ const Projects = () => {
 
 const Blog = () => {
   const posts = [
+    { //tODO: edit these to be real posts with real links
+      title: "Add CLAHE Preprocessing Layer to Keras",
+      excerpt: "My Journey Implementing MagCache in Diffusers",
+      date: "2026-02-01",
+      readTime: "5 min read",
+      category: "Deep Learning",
+      tags: ["Diffusers", "Cache", "Acceleration"],
+      link: "https://alanponnachan.github.io/latent-thoughts/#/post/keras-clahe"
+    },
+
     {
       title: "Making Video Diffusion 2.5x Faster",
       excerpt: "My Journey Implementing MagCache in Diffusers",
