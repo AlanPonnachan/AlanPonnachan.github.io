@@ -329,7 +329,7 @@ const OSS = () => {
       prLink: "https://github.com/keras-team/keras/pull/21953",
       extraLinks: [
         { label: "Paper", url: "https://www.cs.unc.edu/techreports/90-035.pdf" },
-        { label: "Feature Deep Dive", url: "https://pyimagesearch.com/2021/02/01/opencv-histogram-equalization-and-adaptive-histogram-equalization-clahe/" }
+        { label: "Feature Deep Dive", url: "https://alanponnachan.github.io/latent-thoughts/#/post/keras-clahe" }
       ]
     },
 
@@ -579,7 +579,7 @@ const Blog = () => {
       title: "Add CLAHE Preprocessing Layer to Keras",
       excerpt: "My Journey Implementing MagCache in Diffusers",
       date: "2026-02-01",
-      readTime: "5 min read",
+      readTime: "8 min read",
       category: "Deep Learning",
       tags: ["Diffusers", "Cache", "Acceleration"],
       link: "https://alanponnachan.github.io/latent-thoughts/#/post/keras-clahe"
