@@ -575,13 +575,13 @@ const Projects = () => {
 
 const Blog = () => {
   const posts = [
-    { //tODO: edit these to be real posts with real links
-      title: "Add CLAHE Preprocessing Layer to Keras",
-      excerpt: "My Journey Implementing MagCache in Diffusers",
-      date: "2026-02-01",
+    { 
+      title: "Adding a Native CLAHE Preprocessing Layer to Keras 3",
+      excerpt: "How I contributed Contrast Limited Adaptive Histogram Equalization to Google Keras",
+      date: "2026-04-10",
       readTime: "8 min read",
       category: "Deep Learning",
-      tags: ["Diffusers", "Cache", "Acceleration"],
+      tags: ["Keras", "Image Processing", "Computer Vision", "Medical Imaging"],
       link: "https://alanponnachan.github.io/latent-thoughts/#/post/keras-clahe"
     },
 
@@ -608,6 +608,14 @@ const Blog = () => {
     
   ];
 
+  const formatDate = (dateString) => {
+    return new Date(dateString).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
+  };
+
   return (
     <section className="blog">
       <div className="blog-header">
@@ -629,7 +637,7 @@ const Blog = () => {
             </div>
             
             <div className="blog-meta">
-              <span className="blog-date">{post.date}</span>
+              <span className="blog-date">{formatDate(post.date)}</span>
               <span className="blog-read-time">{post.readTime}</span>
             </div>
             
