@@ -619,8 +619,8 @@ const Blog = () => {
   return (
     <section className="blog">
       <div className="blog-header">
-        <h2>ML Insights & Research</h2>
-        <p>Sharing knowledge about machine learning, AI research, and industry trends</p>
+        <h2>Notes & Reflections</h2>
+        <p>Sharing ideas, experiments, and lessons from building and learning.</p>
       </div>
       
       <div className="blog-grid">
