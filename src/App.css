@@ -1134,37 +1134,51 @@ body {
 .blog-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; margin-top: auto;}
 .blog-tag { background: var(--hero-glow-1); color: var(--text-secondary); padding: 4px 10px; border-radius: 15px; font-size: 0.8rem; font-weight: 500;}
 .blog-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-size: 0.9rem; color: var(--text-secondary); }
-/* Read More Link Styling */
+/* Read More Button - Modern Pill Style */
 .read-more {
   text-decoration: none; 
   background: transparent;
-  border: none;
+  border: 1px solid var(--border-color-strong);
+  padding: 10px 24px;
+  border-radius: 100px; /* Creates the sleek pill shape */
   
-  color: var(--gradient-start);
+  color: var(--text-primary);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.3px;
   
   display: inline-flex;
   align-items: center;
-  gap: 6px; /* Space between text and arrow */
+  align-self: flex-start; /* Keeps button from stretching to full width */
+  gap: 10px; /* Space between text and arrow */
   
-  transition: color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   cursor: pointer;
 }
 
-/* 2. Target the arrow span specifically */
+/* Target the arrow specifically */
 .read-more span {
-  display: inline-block;
-  transition: transform 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--gradient-start);
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* Hover Effects */
 .read-more:hover {
-  color: var(--gradient-end); /* Gradient color shift */
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  color: #ffffff;
+  border-color: transparent;
+  transform: translateY(-2px); /* Subtle 3D lift */
+  box-shadow: 0 8px 25px var(--hero-glow-1); /* Soft glow behind button */
 }
 
+/* Turn arrow white and slide it on hover */
 .read-more:hover span {
-  transform: translateX(6px); /* 3. Move ONLY the arrow on hover */
+  color: #ffffff;
+  transform: translateX(6px);
 }
 
 /* Contact Section */
