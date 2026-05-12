@@ -332,6 +332,19 @@ const OSS = () => {
         { label: "Feature Deep Dive", url: "https://alanponnachan.github.io/latent-thoughts/#/post/keras-clahe" }
       ]
     },
+    
+    //TODO modular diffusers pr
+    {
+      project: "Huggingface",
+      repo: "huggingface/diffusers",
+      description: "",
+      tags: [""],
+      prLink: "https://github.com/huggingface/diffusers/pull/13324",
+      extraLinks: [
+        { label: "Paper", url: "" },
+        { label: "Maintainer shoutout", url: "" }
+      ]
+    },
 
     {
       project: "Pydantic",
