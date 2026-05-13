@@ -313,7 +313,7 @@ const OSS = () => {
     {
       project: "Huggingface",
       repo: "huggingface/diffusers",
-      description: "Enabled up to ~3× faster diffusion inference in Diffusers by integrating MagCache, a magnitude-aware adaptive caching mechanism for transformer-based diffusion models.",
+      description: <>Enabled up to <strong>3×</strong> faster diffusion inference in Diffusers by integrating <strong>MagCache</strong>, a magnitude-aware adaptive caching mechanism for transformer-based diffusion models.</>,
       tags: ["Diffusion Models", "Inference Acceleration", "Adaptive Caching"],
       prLink: "https://github.com/huggingface/diffusers/pull/12744",
       extraLinks: [
@@ -324,7 +324,7 @@ const OSS = () => {
      {
       project: "Keras",
       repo: "keras-team/keras",
-      description: "Implemented Contrast Limited Adaptive Histogram Equalization (CLAHE) as a native Keras preprocessing layer, enabling adaptive local contrast enhancement for low-contrast and medical imaging workflows.",
+      description: <>Implemented Contrast Limited Adaptive Histogram Equalization (<strong>CLAHE</strong>) as a native Keras preprocessing layer, enabling adaptive local contrast enhancement for low-contrast and <strong>medical imaging</strong> workflows.</>,
       tags: ["Computer Vision", "Image Processing", "Medical Imaging"],
       prLink: "https://github.com/keras-team/keras/pull/21953",
       extraLinks: [
@@ -349,7 +349,7 @@ const OSS = () => {
     {
       project: "Pydantic",
       repo: "pydantic/pydantic-ai",
-      description: "Designed and shipped runtime, context-aware configuration for built-in agent tools, enabling per-request parameterization and conditional tool availability.",
+      description: <>Designed and shipped runtime, <strong>context-aware</strong> configuration for built-in agent tools, enabling per-request parameterization and conditional tool availability.</>,
       tags: ["LLM Agents", "Context-Aware Systems", "Tool Calling"],
       prLink: "https://github.com/pydantic/pydantic-ai/pull/3600",
       extraLinks: [
@@ -361,7 +361,7 @@ const OSS = () => {
     {
       project: "Pydantic",
       repo: "pydantic/logfire",
-      description: "Built a secure, async OTLP telemetry proxy for Pydantic Logfire to safely route frontend traces, featuring memory-safe streaming and DoS prevention.",
+      description: <>Built a secure, async <strong>OTLP</strong> telemetry proxy for Pydantic Logfire to safely route frontend traces, featuring <strong>memory-safe</strong> streaming and <strong>DoS</strong> prevention.</>,
       tags: ["OpenTelemetry", "Observability", "Web Security", "AsyncIO"], 
       prLink: "https://github.com/pydantic/logfire/pull/1697",
       extraLinks: [ //TODO
@@ -373,7 +373,7 @@ const OSS = () => {
     {
       project: "Pydantic",
       repo: "pydantic/pydantic-ai",  
-      description: "Architected and shipped a unified content filtering system, normalizing disparate safety refusals across OpenAI, Azure, and Gemini into a centralized, observable exception hierarchy.",
+      description: <>Architected and shipped a unified <strong>content filtering</strong> system, normalizing disparate safety refusals across OpenAI, Azure, and Gemini into a centralized, observable exception hierarchy.</>,
       tags: ["LLM Agents", "AI Safety", "Fault Tolerance","System Architecture"],
       prLink: "https://github.com/pydantic/pydantic-ai/pull/3634",
       extraLinks: [
@@ -385,7 +385,7 @@ const OSS = () => {
     {
       project: "Chonkie",
       repo: "chonkie-inc/chonkie",
-      description: "Implemented an Elasticsearch-backed vector store for Chonkie, including automatic index creation, dense_vector mappings, bulk ingestion, and kNN search.",
+      description: <>Implemented an <strong>Elasticsearch-backed</strong> vector store for Chonkie, including automatic index creation, dense_vector mappings, bulk ingestion, and kNN search.</>,
       tags: ["Vector Databases", "Semantic Search", "Retrieval Systems"],
       prLink: "https://github.com/chonkie-inc/chonkie/pull/314", 
       extraLinks: [
@@ -397,7 +397,7 @@ const OSS = () => {
     {
       project: "Huggingface",
       repo: "huggingface/cookbook",
-      description: "Added a hands-on notebook to the Hugging Face Cookbook demonstrating how to build a documentation QA chatbot using synthetic data and efficient fine-tuning.",
+      description: <>Added a hands-on notebook to the Hugging Face Cookbook demonstrating how to build a documentation QA <strong>chatbot</strong> using synthetic data and efficient <strong>fine-tuning</strong>.</>,
       tags: ["LLM Fine-Tuning", "Synthetic Data", "ML Pipelines"],
       prLink: "https://github.com/huggingface/cookbook/pull/294",
       extraLinks: [
