@@ -341,7 +341,7 @@ const OSS = () => {
       tags: [""],
       prLink: "https://github.com/huggingface/diffusers/pull/13324",
       extraLinks: [
-        { label: "Paper", url: "" },
+        { label: "Modular Diffusers", url: "https://huggingface.co/blog/modular-diffusers" },
         { label: "Maintainer shoutout", url: "" }
       ]
     },
