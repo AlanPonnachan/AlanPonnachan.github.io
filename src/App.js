@@ -333,19 +333,6 @@ const OSS = () => {
       ]
     },
     
-    //TODO modular diffusers pr
-    {
-      project: "Huggingface",
-      repo: "huggingface/diffusers",
-      description: "",
-      tags: [""],
-      prLink: "https://github.com/huggingface/diffusers/pull/13324",
-      extraLinks: [
-        { label: "Modular Diffusers", url: "https://huggingface.co/blog/modular-diffusers" },
-        { label: "Maintainer shoutout", url: "" }
-      ]
-    },
-
     {
       project: "Pydantic",
       repo: "pydantic/pydantic-ai",
@@ -357,6 +344,20 @@ const OSS = () => {
         { label: "View Issue", url: "https://github.com/pydantic/pydantic-ai/issues/3555" }
       ]
     },
+
+    //TODO modular diffusers pr
+    {
+      project: "Huggingface",
+      repo: "huggingface/diffusers",
+      description: <>Introduced a <strong>modular Stable Diffusion 3 (SD3) pipeline</strong> in Diffusers, enabling flexible <strong>Text-to-Image</strong> and <strong>Image-to-Image</strong> workflows with dynamic block resolution, component-level loading, and memory-efficient execution.</>,
+      tags: ["Stable Diffusion 3", "Modular Pipelines", "Text-to-Image", "Image-to-Image", "Memory Optimization"],
+      prLink: "https://github.com/huggingface/diffusers/pull/13324",
+      extraLinks: [
+        { label: "Modular Diffusers", url: "https://huggingface.co/blog/modular-diffusers" },
+        { label: "Maintainer shoutout", url: "" }
+      ]
+    },
+
 
     {
       project: "Pydantic",
