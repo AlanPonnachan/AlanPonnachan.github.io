@@ -365,9 +365,9 @@ const OSS = () => {
       description: <>Built a secure, async <strong>OTLP</strong> telemetry proxy for Pydantic Logfire to safely route frontend traces, featuring <strong>memory-safe</strong> streaming and <strong>DoS</strong> prevention.</>,
       tags: ["OpenTelemetry", "Observability", "Web Security", "AsyncIO"], 
       prLink: "https://github.com/pydantic/logfire/pull/1697",
-      extraLinks: [ //TODO
+      extraLinks: [ 
         { label: "Feature Deep Dive", url: "https://logfire.pydantic.dev/docs/integrations/javascript/browser/" },
-        { label: "View Issue", url: "" }
+        { label: "View Issue", url: "https://github.com/pydantic/logfire/issues/1640" }
       ]
     },
     
