@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.67340175.css",
-    "main.js": "/static/js/main.9af95e50.js",
+    "main.js": "/static/js/main.7ba6b0ef.js",
     "static/js/453.ea0887aa.chunk.js": "/static/js/453.ea0887aa.chunk.js",
     "static/media/bosch_logo.svg": "/static/media/bosch_logo.f401fa9db34520425ac6b0491f7f9008.svg",
     "index.html": "/index.html",
     "main.67340175.css.map": "/static/css/main.67340175.css.map",
-    "main.9af95e50.js.map": "/static/js/main.9af95e50.js.map",
+    "main.7ba6b0ef.js.map": "/static/js/main.7ba6b0ef.js.map",
     "453.ea0887aa.chunk.js.map": "/static/js/453.ea0887aa.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.67340175.css",
-    "static/js/main.9af95e50.js"
+    "static/js/main.7ba6b0ef.js"
   ]
 }
