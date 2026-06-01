@@ -344,8 +344,7 @@ const OSS = () => {
         { label: "View Issue", url: "https://github.com/pydantic/pydantic-ai/issues/3555" }
       ]
     },
-
-    //TODO modular diffusers pr
+  
     {
       project: "Huggingface",
       repo: "huggingface/diffusers",
