@@ -340,7 +340,7 @@ const OSS = () => {
       tags: ["LLM Agents", "Context-Aware Systems", "Tool Calling"],
       prLink: "https://github.com/pydantic/pydantic-ai/pull/3600",
       extraLinks: [
-        { label: "Feature Deep Dive", url: "https://ai.pydantic.dev/builtin-tools/#dynamic-configuration" },
+        { label: "Feature Deep Dive", url: "https://pydantic.dev/docs/ai/tools-toolsets/native-tools/#dynamic-configuration" },
         { label: "View Issue", url: "https://github.com/pydantic/pydantic-ai/issues/3555" }
       ]
     },
