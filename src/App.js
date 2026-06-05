@@ -325,7 +325,7 @@ const OSS = () => {
       project: "Keras",
       repo: "keras-team/keras",
       description: <>Implemented Contrast Limited Adaptive Histogram Equalization (<strong>CLAHE</strong>) as a native Keras preprocessing layer, enabling adaptive local contrast enhancement for low-contrast and <strong>medical imaging</strong> workflows.</>,
-      tags: ["Computer Vision", "Image Processing", "Medical Imaging"],
+      tags: ["Computer Vision", "Image Processing", "Medical Imaging","Data Preprocessing"],
       prLink: "https://github.com/keras-team/keras/pull/21953",
       extraLinks: [
         { label: "Paper", url: "https://www.cs.unc.edu/techreports/90-035.pdf" },
@@ -337,7 +337,7 @@ const OSS = () => {
       project: "Pydantic",
       repo: "pydantic/pydantic-ai",
       description: <>Designed and shipped runtime, <strong>context-aware</strong> configuration for built-in agent tools, enabling per-request parameterization and conditional tool availability.</>,
-      tags: ["LLM Agents", "Context-Aware Systems", "Tool Calling"],
+      tags: ["LLM Agents", "Context-Aware Systems", "Tool Calling","Agent Frameworks"],
       prLink: "https://github.com/pydantic/pydantic-ai/pull/3600",
       extraLinks: [
         { label: "Feature Deep Dive", url: "https://pydantic.dev/docs/ai/tools-toolsets/native-tools/#dynamic-configuration" },
