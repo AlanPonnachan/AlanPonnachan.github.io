@@ -215,11 +215,11 @@ const About = () => {
       period: "Oct 2024 - Present",
       tech: ["PyTorch", "PostgreSQL", "FastAPI", "QLoRA", "RAG", "vLLM", "Transformers", "Docker"], 
       highlights: [
-        "Fine-tuned <b>Llama 3.2 Vision</b> via <b>QLoRA</b> on 1,000+ schematic tiles, achieving <b>91%</b> accuracy in structured pin-name extraction and outperforming traditional OCR baselines by <b>35%</b>.",
-        "Engineered a high-throughput inference pipeline using <b>vLLM</b> and sliding-window tiling, resolving high-resolution input constraints and reducing latency by <b>4x</b> for concurrent production workloads.",
-        "Architected a <b>Multi-Modal RAG</b> system combining <b>semantic search</b> for unstructured documents with Programmatic Tool Calling for Excel files, ensuring deterministic data aggregation and reducing extraction time by <b>65%</b>.",
-        "Engineered a <b>Stacking Regression pipeline</b> to predict dynamic signal guard bands, increasing testing yield by <b>15%</b> and automating calibration for over 200 ECU part numbers."
-      ]
+          "Architected a two-stage computer vision pipeline using <b>SAHI</b>, <b>YOLO</b>, and <b>Llama 3.2 Vision</b> trained on <b>10,000+</b> synthetic tiles, achieving <b>92%</b> exact-match accuracy in structured data extraction.",
+          "Engineered a high-throughput inference engine utilizing <b>AWQ quantization</b> and <b>vLLM PagedAttention</b>, dynamically batching image crops to increase overall processing speed by <b>4x</b>.",
+          "Architected a <b>Multi-Modal RAG</b> system combining semantic search for unstructured documents with <b>Programmatic Tool Calling</b> for tabular datasets, ensuring deterministic data aggregation and reducing extraction time by <b>65%</b>.",
+          "Engineered a multi-output <b>LightGBM</b> regression pipeline utilizing target delta formulation to predict hardware safety limits, decreasing false manufacturing failures by <b>25%</b> while maintaining strict defect leakage tolerances."
+        ]
     },
     {
       role: "AI/ML Intern",
