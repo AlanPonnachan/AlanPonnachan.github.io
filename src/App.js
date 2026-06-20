@@ -213,7 +213,7 @@ const About = () => {
       company: "Bosch",
       logo: boschLogo,
       period: "Oct 2024 - Present",
-      tech: ["PyTorch", "PostgreSQL", "FastAPI", "QLoRA", "RAG", "vLLM", "Transformers", "Docker"], 
+      tech: ["PyTorch", "PostgreSQL", "FastAPI", "QLoRA", "RAG", "vLLM", "Transformers", "Docker", "Azure", "MLOps"], 
       highlights: [
           "Architected a two-stage computer vision pipeline using <b>SAHI</b>, <b>YOLO</b>, and <b>Llama 3.2 Vision</b> trained on <b>10,000+</b> synthetic tiles, achieving <b>92%</b> exact-match accuracy in structured data extraction.",
           "Engineered a high-throughput inference engine utilizing <b>AWQ quantization</b> and <b>vLLM PagedAttention</b>, dynamically batching image crops to increase overall processing speed by <b>4x</b>.",
