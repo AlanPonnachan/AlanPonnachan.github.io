@@ -477,7 +477,7 @@ const Projects = () => {
       category: "Machine Learning",
       description: "An illustrated guide to the principles of building, deploying, and maintaining machine learning systems in production.",
       image: "/api/placeholder/400/250",
-      technologies: ["MLOps", "ML Engineering", "Model Monitoring"],
+      technologies: ["MLOps", "ML Engineering", "Model Monitoring", "ML Lifecycle", "Observability", "Production ML", "Machine Learning Systems"],
       links: { github: "https://github.com/AlanPonnachan/applied-ml-systems", demo: "https://alanponnachan.github.io/applied-ml-systems/"}
     },
     {
@@ -485,7 +485,7 @@ const Projects = () => {
       category: "NLP",
       description: "Interactive Machine Learning Visualizations",
       image: "/api/placeholder/400/250",
-      technologies: ["Interactive Data Visualization", "ML Algorithms", "Explainable AI"],
+      technologies: ["Interactive Data Visualization", "ML Algorithms", "Explainable AI", "Algorithm Visualization"],
       links: { github: "https://github.com/AlanPonnachan/ml-algorithm-visualizations", demo: "https://alanponnachan.github.io/ml-algorithm-visualizations" }
     },
     {
@@ -493,7 +493,7 @@ const Projects = () => {
       category: "AI",
       description: "The Adaptive Office Seat Booking System: Intelligent Seat Reservations Powered by LLMs",
       image: "/api/placeholder/400/250",
-      technologies: ["LLM Integration", "Flask", "Data Modeling"],
+      technologies: ["LLM Integration", "Flask", "Data Modeling","Generative AI"],
       links: { github: "https://github.com/AlanPonnachan/smart-office-booking-ai" }
     },
     {
@@ -501,7 +501,7 @@ const Projects = () => {
       category: "AI",
       description: "The Adaptive Office Seat Booking System: Intelligent Seat Reservations Powered by LLMs",
       image: "/api/placeholder/400/250",
-      technologies: ["Transformers", "NLP Model Catalog", "Hugging Face"],
+      technologies: ["Transformers", "NLP Model Catalog", "Hugging Face", "Model Evolution"],
       links: { github: "https://github.com/AlanPonnachan/transformers-timeline/", demo: "https://alanponnachan.github.io/transformers-timeline/"  }
     }
   ];
